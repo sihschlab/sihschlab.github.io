@@ -1,0 +1,1018 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SIH@SCH | Smart IoT & Hyperconnectivity Research Group</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --accent: #1ec8ff;
+
+            /* dark theme (nav/hero/footer) */
+            --dark-bg: #0b0f14;
+            --dark-bg2: #070a10;
+            --dark-text: #eaf2ff;
+            --dark-muted: rgba(234, 242, 255, .78);
+            --dark-border: rgba(255, 255, 255, .10);
+            --dark-glass: rgba(10, 14, 20, .45);
+
+            /* light theme (sections) */
+            --light-bg: #f6f8fc;
+            --light-card: rgba(255, 255, 255, 0.88);
+            --light-text: #0b1220;
+            --light-muted: #5f6f86;
+            --light-border: rgba(15, 23, 42, .12);
+            --light-shadow: 0 18px 55px rgba(2, 8, 23, .10);
+        }
+
+        body {
+            background: var(--light-bg);
+            /* default site background = light */
+            color: var(--light-text);
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+        }
+
+        /* ---------- NAVBAR (DARK) ---------- */
+        .navbar {
+            backdrop-filter: blur(10px);
+            background: rgba(10, 14, 20, 0.70);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .navbar .nav-link {
+            color: rgba(255, 255, 255, 0.75);
+            font-weight: 650;
+        }
+
+        .navbar .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .brand-badge {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            display: inline-grid;
+            place-items: center;
+            background: rgba(30, 200, 255, 0.12);
+            border: 1px solid rgba(30, 200, 255, 0.35);
+            color: var(--accent);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #061019;
+            font-weight: 800;
+        }
+
+        .btn-accent:hover {
+            filter: brightness(.97);
+        }
+
+        .btn-ghost-dark {
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            color: rgba(255, 255, 255, 0.88);
+            background: rgba(255, 255, 255, 0.06);
+            font-weight: 800;
+        }
+
+        .btn-ghost-dark:hover {
+            background: rgba(255, 255, 255, 0.10);
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        /* ---------- HERO (DARK) ---------- */
+        .hero {
+            position: relative;
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: var(--dark-bg2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Make links readable inside the DARK hero */
+        .hero .lead a,
+        .hero .pill a {
+            color: rgba(234, 242, 255, 0.92) !important;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: rgba(30, 200, 255, 0.65);
+        }
+
+        .hero .lead a:hover,
+        .hero .pill a:hover {
+            color: var(--accent) !important;
+            text-decoration-color: var(--accent);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg,
+                    rgba(7, 10, 16, 0.92) 0%,
+                    rgba(7, 10, 16, 0.80) 45%,
+                    rgba(7, 10, 16, 0.35) 70%,
+                    rgba(7, 10, 16, 0.12) 100%),
+                url("https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=2400&q=80");
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.02);
+            filter: saturate(1.05) contrast(1.05);
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: -140px -220px auto auto;
+            width: 560px;
+            height: 560px;
+            background: radial-gradient(circle at 30% 30%, rgba(30, 200, 255, 0.30), transparent 60%);
+            filter: blur(12px);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .45rem .75rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.86);
+            font-size: .92rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1.02;
+            font-size: clamp(2.5rem, 4.4vw, 4.35rem);
+            margin-top: .9rem;
+            color: var(--dark-text);
+            text-shadow: 0 12px 40px rgba(0, 0, 0, .45);
+        }
+
+        .hero p.lead {
+            color: var(--dark-muted);
+            max-width: 62ch;
+            margin-top: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .hero-metrics {
+            margin-top: 2.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .metric {
+            padding: .95rem 1.05rem;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            backdrop-filter: blur(10px);
+            min-width: 185px;
+        }
+
+        .metric .v {
+            font-weight: 900;
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.93);
+        }
+
+        .metric .k {
+            color: rgba(255, 255, 255, 0.70);
+            font-size: .9rem;
+        }
+
+        .hero-card {
+            background: var(--dark-glass);
+            border: 1px solid var(--dark-border);
+            border-radius: 18px;
+            box-shadow: 0 20px 70px rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(12px);
+            color: rgba(255, 255, 255, .90);
+        }
+
+        .hero-card .text-muted {
+            color: rgba(255, 255, 255, .68) !important;
+        }
+
+        .hero-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, .10);
+        }
+
+        .chip-dark {
+            display: inline-flex;
+            padding: .35rem .6rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.78);
+            font-size: .85rem;
+            align-items: center;
+            gap: .35rem;
+            font-weight: 700;
+        }
+
+        /* ---------- LIGHT SECTIONS ---------- */
+        section {
+            padding: 86px 0;
+        }
+
+        .section-title {
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            color: rgba(11, 18, 32, 0.95);
+        }
+
+        .section-sub {
+            color: var(--light-muted);
+            max-width: 78ch;
+        }
+
+        .hc-card {
+            background: var(--light-card);
+            border: 1px solid var(--light-border);
+            border-radius: 18px;
+            box-shadow: 0 16px 45px rgba(2, 8, 23, 0.06);
+            backdrop-filter: blur(10px);
+            transition: 220ms ease;
+        }
+
+        .hc-card:hover {
+            border-color: rgba(30, 200, 255, 0.35);
+            box-shadow: var(--light-shadow);
+            transform: translateY(-2px);
+        }
+
+        .chip {
+            display: inline-flex;
+            padding: .35rem .6rem;
+            border-radius: 999px;
+            border: 1px solid var(--light-border);
+            background: rgba(255, 255, 255, 0.80);
+            color: rgba(11, 18, 32, 0.74);
+            font-size: .85rem;
+            align-items: center;
+            gap: .35rem;
+            font-weight: 700;
+        }
+
+        .section-alt {
+            background: rgba(255, 255, 255, 0.55);
+            border-top: 1px solid rgba(15, 23, 42, .06);
+            border-bottom: 1px solid rgba(15, 23, 42, .06);
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--light-border);
+        }
+
+        /* Forms on light sections */
+        .form-control.bg-transparent {
+            background: rgba(255, 255, 255, 0.90) !important;
+            color: rgba(11, 18, 32, 0.95) !important;
+        }
+
+        .border-secondary-subtle {
+            border-color: var(--light-border) !important;
+        }
+
+        a {
+            color: rgba(11, 18, 32, 0.92);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        /* ---------- FOOTER (DARK) ---------- */
+        .footer {
+            padding: 40px 0;
+            background: var(--dark-bg);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        .footer a {
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        .footer a:hover {
+            color: var(--accent);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR (dark) -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container py-2">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                <span class="brand-badge"><i class="bi bi-broadcast-pin"></i></span>
+                <span class="fw-bold">SIH@SCH</span>
+                <!-- <span class="text-white-50 d-none d-md-inline">• Smart IoT & Hyperconnectivity Research Group</span> -->
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+
+                    <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
+                    <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="people.html">People</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-ghost-dark btn-sm px-3" href="#topics">
+                            <i class="bi bi-compass me-1"></i> Explore
+                        </a>
+                    </li>
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-accent btn-sm px-3" href="#contact">
+                            Collaborate <i class="bi bi-arrow-up-right ms-1"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO (dark) -->
+    <header class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="container hero-content">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="pill">
+
+                        <span class="fw-semibold">Smart IoT • Wireless • AI</span>
+                        <span class="text-white-50">|</span>
+                        <span class="text-white-50">Department of IoT, SCH Media Labs</span>
+                    </div>
+
+                    <h1 style="font-size: 44px;">
+                        Smart IoT <span style="color:var(--accent);">&</span><br class="d-none d-md-block">
+                        Hyperconnectivity Research Group
+                    </h1>
+
+                    <p class="lead">
+                        We are the Smart IoT &amp; Hyperconnectivity Research Group at the
+                        <a href="https://home.sch.ac.kr/iot/" target="_blank" rel="noopener noreferrer">Department of
+                            Internet of Things</a>,
+                        SCH Media Labs, Soonchunhyang University
+                        <a href="https://www.sch.ac.kr/" target="_blank" rel="noopener noreferrer">(SIH@SCH)</a>.
+                        We study Smart IoT, hyperconnected networks, and hyperconnected intelligence to enable an
+                        autonomously networked society.
+                    </p>
+
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="#topics" class="btn btn-accent btn-lg px-4">
+                            Explore research <i class="bi bi-arrow-up-right ms-1"></i>
+                        </a>
+                        <a href="#about" class="btn btn-ghost-dark btn-lg px-4">
+                            Learn more
+                        </a>
+                    </div>
+
+                    <div class="hero-metrics">
+                        <div class="metric">
+                            <div class="v">Latency-aware</div>
+                            <div class="k">URLLC & real-time adaptation</div>
+                        </div>
+                        <div class="metric">
+                            <div class="v">Energy-efficient</div>
+                            <div class="k">Edge/IoT friendly AI</div>
+                        </div>
+                        <div class="metric">
+                            <div class="v">Throughput-driven</div>
+                            <div class="k">Smart scheduling & access</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="hero-card p-4">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div>
+                                <div class="fw-bold">Core idea</div>
+                                <div class="text-muted small">AI that fits wireless constraints</div>
+                            </div>
+                            <span class="chip-dark"><i class="bi bi-lightning-charge"></i> Lightweight
+                                intelligence</span>
+                        </div>
+
+                        <div class="hero-divider my-3"></div>
+
+                        <div class="d-flex gap-3">
+                            <div class="brand-badge" style="width:44px;height:44px;border-radius:14px;">
+                                <i class="bi bi-cpu-fill"></i>
+                            </div>
+                            <div>
+                                <div class="fw-semibold">Instead of heavy deep networks…</div>
+                                <div class="text-muted small mt-1">
+                                    We develop efficient AI frameworks that optimize wireless decisions with minimal
+                                    compute,
+                                    memory, and energy overhead.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 d-flex gap-2 flex-wrap">
+                            <span class="chip-dark"><i class="bi bi-arrow-repeat"></i> Adaptive Decision
+                                Intelligence</span>
+                            <span class="chip-dark"><i class="bi bi-diagram-3"></i> Distributed Intelligence </span>
+                            <span class="chip-dark"><i class="bi bi-wifi"></i> Wireless Optimization</span>
+                            <span class="chip-dark"><i class="bi bi-hdd-network"></i> Edge/IoT</span>
+                        </div>
+
+                        <a class="btn btn-ghost-dark w-100 mt-4" href="#contact">
+                            Contact the lab <i class="bi bi-chevron-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- OVERVIEW (light) -->
+    <section id="about">
+        <div class="container">
+            <div class="row g-4 align-items-start">
+                <div class="col-lg-5">
+                    <h2 class="section-title">Overview</h2>
+                    <p class="section-sub mt-3">
+                        We are the <b>Smart IoT & Hyperconnectivity Research Group</b> at the
+                        <a href="https://home.sch.ac.kr/iot/" target="_blank"><b>Department of Internet of Things </b>
+                            in <b>SCH Media Labs</b></a>,
+                        <a href="https://home.sch.ac.kr/" target="_blank"><b>Soonchunhyang University (SIH@SCH)</b></a>.
+                        Our mission is to build an
+                        <b>autonomously networked society</b>.
+                    </p>
+                    <p class="section-sub mt-3">
+                        Our interest is in <b>Wireless Communications integrated with Artificial Intelligence</b>,
+                        particularly for <b>IoT systems</b> and <b>edge computing</b> environments.
+                    </p>
+
+                    <div class="mt-4 d-flex gap-2 flex-wrap">
+                        <span class="chip"><i class="bi bi-broadcast"></i> Wireless</span>
+                        <span class="chip"><i class="bi bi-robot"></i> AI for Networks</span>
+                        <span class="chip"><i class="bi bi-router"></i> Smart IoT</span>
+                        <span class="chip"><i class="bi bi-cloud-arrow-down"></i> Edge</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="hc-card p-4 h-100">
+                                <div class="fw-bold mb-2">Motivation</div>
+                                <div class="text-secondary">
+                                    Wireless performance in IoT/edge networks is sensitive to latency, energy, and
+                                    throughput.
+                                    Yet many deep learning models are too heavy for resource-limited devices.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="hc-card p-4 h-100">
+                                <div class="fw-bold mb-2">Research goal</div>
+                                <div class="text-secondary">
+                                    Build lightweight AI-driven optimization techniques that adapt wireless behavior
+                                    without heavy computational overhead.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="hc-card p-4 h-100">
+                                <div class="fw-bold mb-2">Why Adaptive Decision Intelligence?</div>
+                                <div class="text-secondary">
+                                    Adaptive Decision Intelligence learns decision policies (power allocation, spectrum
+                                    access, scheduling)
+                                    without extremely deep architectures.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="hc-card p-4 h-100">
+                                <div class="fw-bold mb-2">Why Distributed Intelligence?</div>
+                                <div class="text-secondary">
+                                    Distributed Intelligence distributes intelligence across devices, reduces
+                                    centralized compute, and can be designed
+                                    to be communication-efficient over wireless links.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hc-card p-4 mt-3">
+                        <div class="fw-bold mb-2">Core idea</div>
+                        <div class="text-secondary">
+                            Instead of deploying heavy deep neural networks in wireless systems, we develop efficient AI
+                            frameworks that optimize <b>latency</b>, <b>energy</b>, and <b>throughput</b> in dynamic
+                            wireless
+                            environments—making AI practical for real IoT and edge networks.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESEARCH TOPICS (light) -->
+    <section id="topics" class="section-alt">
+        <div class="container">
+            <div class="d-flex flex-wrap justify-content-between align-items-end gap-3">
+                <div>
+                    <h2 class="section-title">Research Topics</h2>
+                    <p class="section-sub mt-2">
+                        Lightweight AI-driven optimization for wireless systems, built for IoT and edge constraints.
+                    </p>
+                </div>
+                <a class="btn btn-outline-dark fw-bold" href="#contact" style="border-color: var(--light-border);">
+                    <i class="bi bi-people me-1"></i> Collaborate with us
+                </a>
+            </div>
+
+            <div class="row g-3 mt-3">
+                <div class="col-md-6 col-lg-4">
+                    <div class="hc-card p-4 h-100">
+                        <div class="fw-bold"><i class="bi bi-wifi me-2"></i> Wireless Resource Optimization</div>
+                        <div class="text-secondary mt-2">Power control, scheduling, spectrum access, adaptive MAC/PHY
+                            decisions.</div>
+                        <div class="mt-3 d-flex flex-wrap gap-2">
+                            <span class="chip">Latency</span><span class="chip">Throughput</span><span
+                                class="chip">Energy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="hc-card p-4 h-100">
+                        <div class="fw-bold"><i class="bi bi-arrow-repeat me-2"></i> Reinforcement Learning for Networks
+                        </div>
+                        <div class="text-secondary mt-2">Efficient RL policies for real-time decisions under dynamic
+                            channels.</div>
+                        <div class="mt-3 d-flex flex-wrap gap-2">
+                            <span class="chip">Policy learning</span><span class="chip">Online</span><span
+                                class="chip">Low overhead</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="hc-card p-4 h-100">
+                        <div class="fw-bold"><i class="bi bi-diagram-3 me-2"></i> Federated Learning over Wireless</div>
+                        <div class="text-secondary mt-2">Communication-efficient FL, heterogeneity, wireless-aware
+                            aggregation.</div>
+                        <div class="mt-3 d-flex flex-wrap gap-2">
+                            <span class="chip">Comm-efficient</span><span class="chip">Heterogeneous IoT</span><span
+                                class="chip">Privacy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="hc-card p-4 h-100">
+                        <div class="fw-bold"><i class="bi bi-cpu me-2"></i> Lightweight AI for Edge Devices</div>
+                        <div class="text-secondary mt-2">Small models, low-memory learning, real-time inference on IoT
+                            nodes.</div>
+                        <div class="mt-3 d-flex flex-wrap gap-2">
+                            <span class="chip">Compression</span><span class="chip">Quantization</span><span
+                                class="chip">Efficient</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="hc-card p-4 h-100">
+                        <div class="fw-bold"><i class="bi bi-shield-check me-2"></i> URLLC & Reliable Connectivity</div>
+                        <div class="text-secondary mt-2">Ultra-reliable low-latency design for smart factories &
+                            critical IoT.</div>
+                        <div class="mt-3 d-flex flex-wrap gap-2">
+                            <span class="chip">Reliability</span><span class="chip">Delay bounds</span><span
+                                class="chip">QoS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="hc-card p-4 h-100">
+                        <div class="fw-bold"><i class="bi bi-hdd-network me-2"></i> Hyperconnected Intelligence</div>
+                        <div class="text-secondary mt-2">Distributed intelligence across devices for scalable,
+                            autonomous networks.</div>
+                        <div class="mt-3 d-flex flex-wrap gap-2">
+                            <span class="chip">Edge collaboration</span><span class="chip">Autonomy</span><span
+                                class="chip">Scalability</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PUBLICATIONS (light) -->
+    <section id="publications">
+        <div class="container">
+            <div class="d-flex flex-wrap justify-content-between align-items-end gap-3">
+                <div>
+                    <h2 class="section-title">Selected Publications</h2>
+                    <p class="section-sub mt-2">Our Published Papers.</p>
+                </div>
+                <span class="chip"><i class="bi bi-journal-text"></i> Papers</span>
+            </div>
+
+            <div class="row g-3 mt-3">
+                <div class="col-lg-6">
+                    <div class="hc-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-start gap-3">
+                            <div>
+                                <div class="fw-bold">Low-latency edge-enabled digital twin system for multi-robot
+                                    collision avoidance and remote control</div>
+                                <div class="text-secondary small mt-1">2025/07/28</div>
+                            </div>
+                            <span class="chip"><a href="https://www.mdpi.com/1424-8220/25/15/4666"
+                                    target="_blank">View</a></span>
+                        </div>
+                        <div class="text-secondary mt-3">
+                            Edge-based semantic feature transmission reduces latency and bandwidth while maintaining
+                            collision safety.
+                        </div>
+                        <div class="mt-3 d-flex gap-2 flex-wrap">
+                            <a class="btn btn-outline-dark btn-sm fw-bold" href="#"
+                                style="border-color: var(--light-border);">MDPI</a>
+                            <a class="btn btn-outline-dark btn-sm fw-bold" href="#"
+                                style="border-color: var(--light-border);">Sensors</a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="hc-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-start gap-3">
+                            <div>
+                                <div class="fw-bold">Data aggregation and packet bundling of uplink small packets for
+                                    monitoring applications in LTE</div>
+                                <div class="text-secondary small mt-1">2017/11/27</div>
+                            </div>
+                            <span class="chip"><a
+                                    href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8120262"
+                                    target="_blank">View</a></span>
+                        </div>
+                        <div class="text-secondary mt-3">
+                            Aggregator-based uplink with packet bundling reduces signaling overhead and improves
+                            throughput while lowering outage and latency.
+                        </div>
+                        <div class="mt-3 d-flex gap-2 flex-wrap">
+                            <a class="btn btn-outline-dark btn-sm fw-bold" href="#"
+                                style="border-color: var(--light-border);">IEEE</a>
+                            <a class="btn btn-outline-dark btn-sm fw-bold" href="#"
+                                style="border-color: var(--light-border);">IEEE Network</a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="hc-card p-4">
+                        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+                            <div>
+                                <div class="fw-bold">Google Scholar / Publications list</div>
+                                <div class="text-secondary small"> View our research contributions in wireless
+                                    communications, IoT, and distributed intelligence.</div>
+                            </div>
+                            <a class="btn btn-accent"
+                                href="https://scholar.google.co.kr/citations?hl=en&user=Dwax8qsAAAAJ" role="button"
+                                target="_blank">
+                                View all publications <i class="bi bi-arrow-up-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWS (light alt) -->
+    <section id="news" class="section-alt">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-end gap-3 flex-wrap">
+                <div>
+                    <h2 class="section-title">News</h2>
+                    <p class="section-sub mt-2">Recent lab updates and milestones.</p>
+                </div>
+                <span class="chip"><i class="bi bi-megaphone"></i> Updates</span>
+            </div>
+
+            <div class="row g-3 mt-3">
+                <div class="col-lg-4">
+                    <div class="hc-card p-4 h-100">
+                        <div class="text-secondary small">March 2026</div>
+                        <div class="fw-bold mt-1">Maharani Hastuti Poul Mtowe completed his Master’s degree</div>
+                        <div class="text-secondary mt-2"> Maharani Hastuti will continue to pursue his PhD in our
+                            laboratory.
+                            Congratulations!</div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="hc-card p-4 h-100">
+                        <div class="text-secondary small">February 2026</div>
+                        <div class="fw-bold mt-1">Minhyeok Park & YouChang completed their Master’s degree</div>
+                        <div class="text-secondary mt-2">We celebrate and wish them all the best in their future
+                            endeavors.</div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="hc-card p-4 h-100">
+                        <div class="text-secondary small">Sept 2019</div>
+                        <div class="fw-bold mt-1">National research project awarded</div>
+                        <div class="text-secondary mt-2">
+                            Intelligent IoT network design for ultra-reliable low-latency communications (3-year
+                            project).
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="hc-card p-4 h-100">
+                        <div class="text-secondary small">Aug 2019</div>
+                        <div class="fw-bold mt-1">VR project supported by KOCCA</div>
+                        <div class="text-secondary mt-2">
+                            Collaboration on Virtual/Mixed Reality Education Contents with <i>Romeo &amp; Juliet</i>.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="hc-card p-4 h-100">
+                        <div class="text-secondary small">Feb 2019</div>
+                        <div class="fw-bold mt-1">Paper accepted to IEEE Wireless Communications Letters</div>
+                        <div class="text-secondary mt-2">UAV-based two-way communication paper accepted.
+                            Congratulations!</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="hc-card p-4 h-100">
+                        <div class="text-secondary small">Sept 2018</div>
+                        <div class="fw-bold mt-1">SIH@SCH started</div>
+                        <div class="text-secondary mt-2">Smart IoT & Hyperconnected Research Group launched on September
+                            1, 2018.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PEOPLE (light) -->
+    <section id="team">
+        <div class="container">
+            <div class="d-flex flex-wrap justify-content-between align-items-end gap-3">
+                <div>
+                    <h2 class="section-title">People</h2>
+                    <p class="section-sub mt-2">PI, students, interns, and alumni.</p>
+                </div>
+                <span class="chip"><i class="bi bi-people"></i> Team</span>
+            </div>
+
+            <div class="row g-3 mt-3">
+                <div class="col-md-6 col-lg-3">
+                    <div class="hc-card p-4 h-100">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="brand-badge" style="width:52px;height:52px;border-radius:16px;">
+                                <span class="fw-bold">PI</span>
+                            </div>
+                            <div>
+                                <div class="fw-bold">Prof. Dong-Min Kim</div>
+                                <div class="text-secondary small">Principal Investigator</div>
+                            </div>
+                        </div>
+                        <div class="mt-3 d-flex gap-2 flex-wrap">
+                            <span class="chip">RL</span><span class="chip">Wireless</span><span
+                                class="chip">IoT</span><span class="chip">AI</span><span class="chip">FL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="hc-card p-4 h-100">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="brand-badge" style="width:52px;height:52px;border-radius:16px;">
+                                <span class="fw-bold">PhD</span>
+                            </div>
+                            <div>
+                                <div class="fw-bold">Daniel Poul Mtowe</div>
+                                <div class="text-secondary small">PhD Researcher</div>
+                            </div>
+                        </div>
+                        <div class="mt-3 d-flex gap-2 flex-wrap">
+                            <span class="chip">RL</span><span class="chip">URLLC</span><span class="chip">Edge</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="hc-card p-4 h-100">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="brand-badge" style="width:52px;height:52px;border-radius:16px;">
+                                <span class="fw-bold">PhD</span>
+                            </div>
+                            <div>
+                                <div class="fw-bold">Issamu Fred</div>
+                                <div class="text-secondary small">PhD Researcher</div>
+                            </div>
+                        </div>
+                        <div class="mt-3 d-flex gap-2 flex-wrap">
+                            <span class="chip">Wireless</span><span class="chip">Scheduling</span><span
+                                class="chip">AI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="hc-card p-4 h-100">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="brand-badge" style="width:52px;height:52px;border-radius:16px;">
+                                <span class="fw-bold">PhD</span>
+                            </div>
+                            <div>
+                                <div class="fw-bold">Maharani Hastuti</div>
+                                <div class="text-secondary small">PhD Researcher</div>
+                            </div>
+                        </div>
+                        <div class="mt-3 d-flex gap-2 flex-wrap">
+                            <span class="chip">AI</span><span class="chip">Data</span> <span
+                                class="chip">Simulation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="hc-card p-4 h-100">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="brand-badge" style="width:52px;height:52px;border-radius:16px;">
+                                <span class="fw-bold">UG</span>
+                            </div>
+                            <div>
+                                <div class="fw-bold">Intern Name</div>
+                                <div class="text-secondary small">Undergrad Intern</div>
+                            </div>
+                        </div>
+                        <div class="mt-3 d-flex gap-2 flex-wrap">
+                            <span class="chip">Experiment</span><span class="chip">Data</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="hc-card p-4 h-100">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="brand-badge" style="width:52px;height:52px;border-radius:16px;">
+                                <span class="fw-bold">UG</span>
+                            </div>
+                            <div>
+                                <div class="fw-bold">Intern Name</div>
+                                <div class="text-secondary small">Undergrad Intern</div>
+                            </div>
+                        </div>
+                        <div class="mt-3 d-flex gap-2 flex-wrap">
+                            <span class="chip">Experiment</span><span class="chip">Data</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="hc-card p-4 h-100">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="brand-badge" style="width:52px;height:52px;border-radius:16px;">
+                                <span class="fw-bold">UG</span>
+                            </div>
+                            <div>
+                                <div class="fw-bold">Intern Name</div>
+                                <div class="text-secondary small">Undergrad Intern</div>
+                            </div>
+                        </div>
+                        <div class="mt-3 d-flex gap-2 flex-wrap">
+                            <span class="chip">Experiment</span><span class="chip">Data</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="hc-card p-4 mt-3">
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+                    <div>
+                        <div class="fw-bold">Join the lab</div>
+                        <div class="text-secondary small">We welcome motivated students and collaborators.</div>
+                    </div>
+                    <a class="btn btn-accent" href="#contact">
+                        Contact us <i class="bi bi-arrow-up-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT (light alt) -->
+    <section id="contact" class="section-alt">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12">
+                    <h2 class="section-title">Contact</h2>
+                    <p class="section-sub mt-2">
+                        For collaboration, visiting, or student opportunities, reach us through email or phone.
+                    </p>
+
+                    <div class="hc-card p-4 mt-4">
+                        <div class="d-flex gap-3 align-items-start">
+                            <div class="brand-badge"><i class="bi bi-envelope-fill"></i></div>
+                            <div>
+                                <div class="fw-semibold">Email</div>
+                                <div class="text-secondary">dmk@sch.ac.kr / don9min@gmail.com</div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-3 align-items-start mt-3">
+                            <div class="brand-badge"><i class="bi bi-telephone-fill"></i></div>
+                            <div>
+                                <div class="fw-semibold">Tel</div>
+                                <div class="text-secondary">+82 41 530 1535</div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-3 align-items-start mt-3">
+                            <div class="brand-badge"><i class="bi bi-geo-alt-fill"></i></div>
+                            <div>
+                                <div class="fw-semibold">Address</div>
+                                <div class="text-secondary">
+                                    ML408, SCH Media Labs Building<br>
+                                    22 Soonchunhyang-ro, Shinchang-myeon, Asan-si, Chungcheongnam-do<br>
+                                    31538, Republic of Korea
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="divider my-3"></div>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (dark) -->
+    <footer class="footer">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+            <div>© <span id="y"></span> SIH@SCH — Smart IoT & Hyperconnectivity Research Group.</div>
+            <div class="d-flex gap-3">
+                <a href="#about">Overview</a>
+                <a href="#topics">Research</a>
+                <a href="#publications">Publications</a>
+                <a href="#news">Projects</a>
+                <a href="#team">People</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+
+</html>

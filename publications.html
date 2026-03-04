@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SIH@SCH | Publications</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --accent: #1ec8ff;
+
+            /* dark theme (nav/hero/footer) */
+            --dark-bg: #0b0f14;
+            --dark-bg2: #070a10;
+            --dark-text: #eaf2ff;
+            --dark-muted: rgba(234, 242, 255, .78);
+            --dark-border: rgba(255, 255, 255, .10);
+            --dark-glass: rgba(10, 14, 20, .45);
+
+            /* light theme (sections) */
+            --light-bg: #f6f8fc;
+            --light-card: rgba(255, 255, 255, 0.88);
+            --light-text: #0b1220;
+            --light-muted: #5f6f86;
+            --light-border: rgba(15, 23, 42, .12);
+            --light-shadow: 0 18px 55px rgba(2, 8, 23, .10);
+        }
+
+        body {
+            background: var(--light-bg);
+            color: var(--light-text);
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+        }
+
+        /* NAVBAR (DARK) */
+        .navbar {
+            backdrop-filter: blur(10px);
+            background: rgba(10, 14, 20, 0.70);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .navbar .nav-link {
+            color: rgba(255, 255, 255, 0.75);
+            font-weight: 650;
+        }
+
+        .navbar .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .brand-badge {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            display: inline-grid;
+            place-items: center;
+            background: rgba(30, 200, 255, 0.12);
+            border: 1px solid rgba(30, 200, 255, 0.35);
+            color: var(--accent);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #061019;
+            font-weight: 800;
+        }
+
+        .btn-accent:hover {
+            filter: brightness(.97);
+        }
+
+        .btn-ghost-dark {
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            color: rgba(255, 255, 255, 0.88);
+            background: rgba(255, 255, 255, 0.06);
+            font-weight: 800;
+        }
+
+        .btn-ghost-dark:hover {
+            background: rgba(255, 255, 255, 0.10);
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        /* HERO (DARK) */
+        .hero {
+            position: relative;
+            padding: 90px 0 70px;
+            overflow: hidden;
+            background: var(--dark-bg2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg,
+                    rgba(7, 10, 16, 0.92) 0%,
+                    rgba(7, 10, 16, 0.80) 45%,
+                    rgba(7, 10, 16, 0.35) 70%,
+                    rgba(7, 10, 16, 0.12) 100%),
+                url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2400&q=80");
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.02);
+            filter: saturate(1.05) contrast(1.05);
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: -140px -220px auto auto;
+            width: 560px;
+            height: 560px;
+            background: radial-gradient(circle at 30% 30%, rgba(30, 200, 255, 0.30), transparent 60%);
+            filter: blur(12px);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .45rem .75rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.86);
+            font-size: .92rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            font-size: clamp(2.1rem, 4.2vw, 3.2rem);
+            margin-top: .9rem;
+            color: var(--dark-text);
+            text-shadow: 0 12px 40px rgba(0, 0, 0, .45);
+        }
+
+        .hero p.lead {
+            color: var(--dark-muted);
+            max-width: 85ch;
+            margin-top: 1rem;
+            font-size: 1.05rem;
+        }
+
+        /* LIGHT SECTIONS */
+        section {
+            padding: 86px 0;
+        }
+
+        .section-title {
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            color: rgba(11, 18, 32, 0.95);
+        }
+
+        .section-sub {
+            color: var(--light-muted);
+            max-width: 92ch;
+        }
+
+        .section-alt {
+            background: rgba(255, 255, 255, 0.55);
+            border-top: 1px solid rgba(15, 23, 42, .06);
+            border-bottom: 1px solid rgba(15, 23, 42, .06);
+        }
+
+        .hc-card {
+            background: var(--light-card);
+            border: 1px solid var(--light-border);
+            border-radius: 18px;
+            box-shadow: 0 16px 45px rgba(2, 8, 23, 0.06);
+            backdrop-filter: blur(10px);
+            transition: 220ms ease;
+        }
+
+        .hc-card:hover {
+            border-color: rgba(30, 200, 255, 0.35);
+            box-shadow: var(--light-shadow);
+            transform: translateY(-2px);
+        }
+
+        .chip {
+            display: inline-flex;
+            padding: .35rem .6rem;
+            border-radius: 999px;
+            border: 1px solid var(--light-border);
+            background: rgba(255, 255, 255, 0.80);
+            color: rgba(11, 18, 32, 0.74);
+            font-size: .85rem;
+            align-items: center;
+            gap: .35rem;
+            font-weight: 700;
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--light-border);
+        }
+
+        /* Make long author lists safe */
+        p,
+        li,
+        a,
+        .text-secondary,
+        .lead {
+            overflow-wrap: anywhere;
+            word-break: normal;
+        }
+
+        .pub-list li {
+            margin-bottom: .7rem;
+        }
+
+        /* FOOTER (DARK) */
+        .footer {
+            padding: 40px 0;
+            background: var(--dark-bg);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        .footer a {
+            color: rgba(255, 255, 255, 0.72);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: var(--accent);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container py-2">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <span class="brand-badge"><i class="bi bi-broadcast-pin"></i></span>
+                <span class="fw-bold">SIH@SCH</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+
+                    <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page"
+                            href="publications.html">Publications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="people.html">People</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-ghost-dark btn-sm px-3" href="index.html#contact">
+                            <i class="bi bi-people me-1"></i> Collaborate
+                        </a>
+                    </li>
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-accent btn-sm px-3" href="index.html#contact">
+                            Contact <i class="bi bi-arrow-up-right ms-1"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="container hero-content">
+            <div class="row align-items-center">
+                <div class="col-lg-10">
+                    <div class="pill">
+                        <i class="bi bi-journal-text"></i>
+                        <span class="fw-semibold">Publications</span>
+                        <span class="text-white-50">|</span>
+                        <span class="text-white-50">Journals • Conferences • Patents</span>
+                    </div>
+
+                    <h1>Publications</h1>
+                    <p class="lead">
+                        Selected research outputs including working papers, international journals, conferences,
+                        domestic publications,
+                        and patents.
+                    </p>
+
+                    <div class="d-flex gap-2 flex-wrap mt-3">
+                        <a class="btn btn-accent" href="#pubs">Browse list <i class="bi bi-arrow-down ms-1"></i></a>
+                        <a class="btn btn-ghost-dark" href="index.html">Back to Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENT -->
+    <section id="pubs">
+        <div class="container">
+            <div class="row g-3">
+
+                <!-- Working Papers -->
+                <div class="col-12">
+                    <div class="hc-card p-4">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                            <div>
+                                <h2 class="section-title mb-0">Working Papers</h2>
+                                <div class="section-sub mt-1">Submitted or in preparation.</div>
+                            </div>
+                            <span class="chip"><i class="bi bi-pencil-square"></i> Working</span>
+                        </div>
+                        <div class="divider my-3"></div>
+                        <ol class="pub-list text-secondary mb-0">
+                            <li>Nurul Huda Mahmood, Gilberto Berardinelli, Hirley Alves, Dong Min Kim and Marta Sarret,
+                                “Robust Interference Management and Network Design for Full-Duplex Communication,”
+                                submitted for publication.</li>
+                            <li>Dong Min Kim and Seong-Lyun Kim, “Utilizing Interference: Busy-medium Utilizing Multiple
+                                access Protocol (BUMP),” in preparation.</li>
+                            <li>Dong Min Kim, Nuno K. Pratas and Petar Popovski, “Decoupled Access for Low Latency
+                                Two-Way Communication in Cellular Network,” in preparation.</li>
+                            <li>Jihong Park, Dong Min Kim, Elisabeth De Carvalho and Carles Navarro Manchón, “Hybrid
+                                Precoding for Massive MIMO Systems in Cloud RAN Architecture with Capacity-Limited
+                                Fronthauls,” submitted for publication. <b>[arXiv]</b></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- International Journal -->
+                <div class="col-12">
+                    <div class="hc-card p-4">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                            <div>
+                                <h2 class="section-title mb-0">International Journal</h2>
+                                <div class="section-sub mt-1">Peer-reviewed journal articles.</div>
+                            </div>
+                            <span class="chip"><i class="bi bi-award"></i> Journal</span>
+                        </div>
+                        <div class="divider my-3"></div>
+
+                        <ol class="pub-list text-secondary mb-0" start="1" reversed>
+                            <li><b>Huy Truong Dinh</b>, Jaeseok Yun, Dong Min Kim, Kyu-Haeng Lee, Daehee Kim, “A Home
+                                Energy Management System with Renewable Energy and Energy Storage Utilizing Main Grid
+                                and Electricity Selling,” <i>IEEE Access</i>, 2020. <b>[VIEW]</b></li>
+                            <li>Wenqian Huang, Dong Min Kim, Wenrui Ding and Petar Popovski, “Joint Optimization of
+                                Altitude and Transmission Direction in UAV-based Two-Way Communication,” <i>IEEE
+                                    Wireless Communications Letters</i>, 8 (4), pp. 984-987, April 2019. <b>[VIEW]</b>
+                                <b>[arXiv]</b>
+                            </li>
+                            <li>Jinho Choi, Sang Yeob Jung, Seong-Lyun Kim, Dong Min Kim and Petar Popovski,
+                                “User-centric resource allocation with two-dimensional reverse pricing in mobile
+                                communication services,” <i>Journal of Communications and Networks</i>, 31 (2),
+                                pp.148-157, April 2019. <b>[VIEW]</b></li>
+                            <li>Petar Popovski, Jimmy J. Nielsen, Cedomir Stefanovic, Elisabeth de Carvalho, Erik Ström,
+                                Kasper F. Trillingsgaard, Alexandru-Sabin Bana, Dong Min Kim, Radoslaw Kotaba, Jihong
+                                Park and René B. Sørensen, “Wireless Access for Ultra-Reliable Low-Latency Communication
+                                (URLLC): Principles and Building Blocks,” <i>IEEE Network</i>, 32 (2), March 2018.
+                                <b>[VIEW]</b> <b>[arXiv]</b>
+                            </li>
+                            <li>Jeemin Kim, Hyun-Kwan Lee, Dong Min Kim and Seong-Lyun Kim, “Delay Performance of
+                                Two-Stage Access in Cellular Internet of Things Networks,” <i>IEEE Transactions on
+                                    Vehicular Technology</i>, 67 (4), pp. 3521-3533, April 2018. <b>[VIEW]</b></li>
+                            <li>Dong Min Kim, René B. Sørensen, Kashif Mahmood, Olav Norvald Østerbø, Andrea Zanella and
+                                Petar Popovski, “Data Aggregation and Packet Bundling of Uplink Small Packets for
+                                Monitoring Applications in LTE,” <i>IEEE Network</i>, 31 (6), pp. 32-38, November 2017.
+                                <b>[VIEW]</b> <b>[arXiv]</b>
+                            </li>
+                            <li>Taehoon Kim, Dong Min Kim, Nuno Pratas, Petar Popovski and Dan Keun Sung, “An Enhanced
+                                Access Reservation Protocol With a Partial Preamble Transmission Mechanism in NB-IoT
+                                Systems,” <i>IEEE Communications Letters</i>, 21 (10), pp. 2270-2273, October 2017.
+                                <b>[VIEW]</b>
+                            </li>
+                            <li>René B. Sørensen, Dong Min Kim, Jimmy J. Nielsen and Petar Popovski, “Analysis of
+                                Latency and MAC-Layer Performance for Class A LoRaWAN,” <i>IEEE Wireless Communications
+                                    Letters</i>, 6 (5), pp. 566-569, October 2017. <b>[VIEW]</b></li>
+                            <li>Dong Min Kim and Petar Popovski, “Reliable Uplink Communication through Double
+                                Association in Wireless Heterogeneous Networks,” <i>IEEE Wireless Communications
+                                    Letters</i>, 5 (3), pp. 312-315, June 2016. <b>[VIEW]</b> <b>[arXiv]</b></li>
+                            <li>Henning Thomsen, Petar Popovski, Elisabeth de Carvalho, Nuno K. Pratas, Dong Min Kim and
+                                Federico Boccardi, “CoMPflex: CoMP for In-Band Wireless Full Duplex,” <i>IEEE Wireless
+                                    Communications Letters</i>, 5 (2), pp. 144-147, April 2016. <b>[VIEW]</b>
+                                <b>[arXiv]</b>
+                            </li>
+                            <li>Germán C. Madueño, Jimmy J. Nielsen, Dong Min Kim, Nuno K. Pratas, Čedomir Stefanović
+                                and Petar Popovski, “Assessment of LTE Wireless Access for Monitoring of Energy
+                                Distribution in the Smart Grid,” <i>IEEE Journal on Selected Areas in
+                                    Communications</i>, 34 (3), pp. 675-688, March 2016. <b>[VIEW]</b> <b>[arXiv]</b>
+                            </li>
+                            <li>Dong Min Kim and Seong-Lyun Kim, “Exploiting Regional Differences: A Spatially Adaptive
+                                Random Access,” <i>IEEE Transactions on Wireless Communications</i>, 14 (8), pp.
+                                4342-4352, August 2015. <b>[VIEW]</b> <b>[arXiv]</b></li>
+                            <li>Dong Min Kim and Seong-Lyun Kim, “An Iterative Algorithm for Optimal Carrier Sensing
+                                Threshold in Random CSMA/CA Wireless Networks,” <i>IEEE Communications Letters</i>, 17
+                                (11), pp. 2076-2079, November 2013. <b>[VIEW]</b> <b>[arXiv]</b> <b>[Derivation of Eq.
+                                    (5)]</b></li>
+                            <li>Hyun-kwan Lee, Dong Min Kim, YoungJu Hwang, Seung Min Yu and Seong-Lyun Kim,
+                                “Feasibility of Cognitive Machine-to-Machine Communication Using Cellular Bands,”
+                                <i>IEEE Wireless Communications</i>, 20 (2), pp. 97-103, April 2013. <b>[VIEW]</b>
+                            </li>
+                            <li>Dong Min Kim, Young Ju Hwang, Seong-Lyun Kim and Gwang-Ja Jin, “Testbed Results of an
+                                Opportunistic Routing for Multi-Robot Wireless Networks,” <i>Computer
+                                    Communications</i>, 34 (18), pp. 2174-2183, December 2011. <b>[VIEW]</b></li>
+                        </ol>
+
+                        <div class="text-secondary small mt-3">
+                            *Order shown as provided in your list (latest at top visually).
+                        </div>
+                    </div>
+                </div>
+
+                <!-- International Conference -->
+                <div class="col-12">
+                    <div class="hc-card p-4">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                            <div>
+                                <h2 class="section-title mb-0">International Conference</h2>
+                                <div class="section-sub mt-1">Conference and workshop proceedings.</div>
+                            </div>
+                            <span class="chip"><i class="bi bi-mic"></i> Conference</span>
+                        </div>
+                        <div class="divider my-3"></div>
+
+                        <ol class="pub-list text-secondary mb-0" start="1" reversed>
+                            <li>Nurul Huda Mahmood, Daniela Laselva, David Palacios, Mustafa Emara, Miltiades C.
+                                Filippou, Dong Min Kim and Isabel de-la-Bandera, “Multi-Channel Access Solutions for 5G
+                                New Radio,” in Proc. IEEE WCNC Workshop on Critical and Massive Connectivity solutions
+                                for 5G and Beyond (WSCMC) 2019, Marrakech, Morocco, April 15-18, 2019.</li>
+                            <li>Ming Shen, Shuai Zhang, Dong Min Kim, Ondrej Franek, Jan H. Mikkelsen and Gert F.
+                                Pedersen, “Auditing of Ultra Dense RFID Straws in Cryogenic Container at -196°C,” in
+                                Proc. IEEE International Conference on RFID Technology & Application (RFID-TA) 2018,
+                                Macau, China, September 26-28, 2018. <b>[VIEW]</b></li>
+                            <li>Dong Min Kim, Nuno K. Pratas and Petar Popovski, “Achieving Low Latency Two-Way
+                                Communication by Downlink and Uplink Decoupled Access,” in Proc. SPAWC 2018, Kalamata,
+                                Greece, June 25-28, 2018. <b>[arXiv]</b></li>
+                            <li>Dong Min Kim, Jihong Park, Elisabeth De Carvalho and Carles Navarro Manchón, “Massive
+                                MIMO Functionality Splits based on Hybrid Analog-Digital Precoding in a C-RAN
+                                Architecture,” in Proc. Asilomar Conference on Signals, Systems, and Computers 2017,
+                                Asilomar, CA, USA, October 29-November 1, 2017.</li>
+                            <li>Dong Min Kim, Henning Thomsen and Petar Popovski, “On a User-Centric Base Station
+                                Cooperation Scheme for Reliable Communications,” in Proc. IEEE VTC 2017 Spring, Sydney,
+                                Australia, June 4-7, 2017. <b>[arXiv]</b></li>
+                            <li>Jihong Park, Dong Min Kim, Petar Popovski and Seong-Lyun Kim, “Revisiting Frequency
+                                Reuse towards Supporting Ultra-Reliable Ubiquitous-Rate Communication,” in Proc. IEEE
+                                Workshop on Spatial Stochastic Models for Wireless Networks (SpaSWiN) 2017, Paris,
+                                France, May 19, 2017. <b>[VIEW]</b> <b>[arXiv]</b></li>
+                            <li>Henning Thomsen, Dong Min Kim, Petar Popovski, Nuno K. Pratas and Elisabeth de Carvalho,
+                                “Full Duplex Emulation via Spatial Separation of Half Duplex Nodes in a Planar Cellular
+                                Network,” in Proc. IEEE SPWAC 2016, Edinburgh, UK, July 3-6, 2016. <b>[VIEW]</b>
+                                <b>[arXiv]</b>
+                            </li>
+                            <li>Jimmy J. Nielsen, Dong Min Kim, German C. Madueno, Nuno K. Pratas and Petar Popovski, “A
+                                Tractable Model of the LTE Access Reservation Procedure for Machine-Type
+                                Communications,” in Proc. IEEE GLOBECOM 2015, San Diego, CA, USA, December 6-10, 2015.
+                                <b>[VIEW]</b> <b>[arXiv]</b>
+                            </li>
+                            <li>Taehyoung Shim, Dong Min Kim and Seong-Lyun Kim, “An Introduction to Socially Connected
+                                Machines: Characteristics and Applications,” in Proc. The 3rd IFAC Symposium on
+                                Telematics Applications, Seoul, Korea, November 11-13, 2013. <b>[PDF]</b> <b>[arXiv]</b>
+                            </li>
+                            <li>Dong Min Kim and Seong-Lyun Kim, “Network Coded Rate Scheduling for Two-way Relay
+                                Networks,” in Proc. European Wireless 2011, Vienna, Austria, April 27-29, 2011.
+                                <b>[VIEW]</b> <b>[PDF(draft)]</b> <b>[arXiv]</b>
+                            </li>
+                            <li>Dong Min Kim, Young Ju Hwang, Seong-Lyun Kim, Gwang-Ja Jin and Bong-Soo Kim, “Random
+                                Basketball Routing for ZigBee based Sensor Networks,” in Proc. IEEE APWCS 2007, Hsinchu,
+                                Taiwan, August 20-21, 2007. <b>[PDF]</b> <b>[arXiv]</b></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Domestic Journal -->
+                <div class="col-lg-6">
+                    <div class="hc-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                            <div>
+                                <h2 class="section-title mb-0">Domestic Journal</h2>
+                                <div class="section-sub mt-1">Korean domestic journals.</div>
+                            </div>
+                            <span class="chip"><i class="bi bi-journal"></i> Domestic</span>
+                        </div>
+                        <div class="divider my-3"></div>
+                        <ol class="pub-list text-secondary mb-0">
+                            <li>Bong-Suk Shin, Hyun-kwan Lee, Jung Min Park, Dong Min Kim, Seong-Lyun Kim, Sang-il Lee
+                                and Myung-kil Ahn, “Cross-layer Design of Routing and Link Capacity Extension for QoS in
+                                Communication Networks,” <i>The Journal of Korea Information and Communications Society
+                                    (J-KICS)</i>, 35 (12), pp. 1749-1757, December 2010. <b>[VIEW]</b></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Domestic Conference -->
+                <div class="col-lg-6">
+                    <div class="hc-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                            <div>
+                                <h2 class="section-title mb-0">Domestic Conference</h2>
+                                <div class="section-sub mt-1">Korean domestic conferences.</div>
+                            </div>
+                            <span class="chip"><i class="bi bi-people"></i> Domestic</span>
+                        </div>
+                        <div class="divider my-3"></div>
+                        <ol class="pub-list text-secondary mb-0" start="1" reversed>
+                            <li>Dong Min Kim, “Implementation of a Reliable Networked Control System using Edge
+                                Computing,” in Proc. Korean Institute of Communications and Information Sciences (KICS)
+                                Winter Conference 2020, South Korea, February 5-7, 2020.</li>
+                            <li>Dong Min Kim, Joonsoo Kim and Seong-Lyun Kim, “An Implementation of IoT Inferring Lost
+                                Control Commands via Unreliable Channels,” in Proc. Joint Conference on Communications
+                                and Information (JCCI) 2018, South Korea, May 2-4, 2018.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Patents -->
+                <div class="col-12">
+                    <div class="hc-card p-4">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                            <div>
+                                <h2 class="section-title mb-0">Patents</h2>
+                                <div class="section-sub mt-1">Selected patent filings and registrations.</div>
+                            </div>
+                            <span class="chip"><i class="bi bi-patch-check"></i> Patents</span>
+                        </div>
+                        <div class="divider my-3"></div>
+
+                        <ul class="pub-list text-secondary mb-0">
+                            <li>Chang Sik Park, Hak Jin Chong, Seong-Lyun Kim, Dong Min Kim, So Young Kim, Woo Ram Lee
+                                and Hyun Kwan Lee, “무선 센서 네트워크에서 그룹의 이동성 예측 장치 및 그 방법 (Apparatus and method for the
+                                prediction of group mobility in wireless sensor network),” Korea Patent Application No.
+                                10-2008-0016876, Filing Date Feb. 25, 2008. Korea Patent No. 0982439, Registering Date
+                                Sep. 09, 2010.</li>
+                            <li>Gwang-Ja Jin, Bong-Soo Kim, Cheol Sig Pyo, Jong Suk Chae, Young Ju Hwang, Dong Min Kim
+                                and Seong-Lyun Kim, “동적 기반의 메시지 전달 방법을 이용한 무선 센서 네트워크 및 그 제어 방법 (A wireless sensor
+                                network structure and the control method thereof using dynamic message routing
+                                algorithm),” Korea Patent Application No. 10-2007-0123644, Filing Date Nov. 30, 2007.
+                                Korea Patent No. 0943175, Registering Date Feb. 11, 2010.</li>
+                            <li>Gwang-Ja Jin, Bong-Soo Kim, Cheol Sig Pyo, Jong Suk Chae, Young Ju Hwang, Dong Min Kim
+                                and Seong-Lyun Kim, “중계확률 기반의 무선 네트워크의 메시지 전달 방법 (A routing method for wireless network
+                                based on relay probability),” Korea Patent Application No. 10-2007-0123642, Filing Date
+                                Nov. 30, 2007. Korea Patent No. 0943174, Registering Date Feb. 11, 2010.</li>
+                            <li>Zu Cheul Lee, Kun Ho Yi, Dong Min Kim, Hyun Kwan Lee and Seong-Lyun Kim, “구성원 이동성 예측 기반의
+                                센서로봇 제어 방법 (Method for controlling the sensor robot based on member mobility
+                                prediction),” Korea Patent Application No. 10-2008-0135665, Filing Date Dec. 29, 2008.
+                            </li>
+                            <li>Zu Cheul Lee, Hak Jin Chong, Dong Min Kim, So Young Kim and Seong-Lyun Kim, “무선 센서
+                                네트워크에서 센서노드 및 센서로봇의 협업적 이동성 예측 장치와 센서로봇의 제어 방법 (Apparatus for the cooperative mobility
+                                prediction of sensor nodes and sensor robots in wireless sensor network and method for
+                                controlling a sensor robot),” Korea Patent Application No. 10-2008-0133916, Filing Date
+                                Dec. 24, 2008.</li>
+                            <li>Gwang Ja Jin, Bong Soo Kim, Cheol Sig Pyo, Jong Suk Chae, Young Ju Hwang, Dong Min Kim
+                                and Seong Lyun Kim, “Method for routing message in wireless network based on relay
+                                probability,” US Patent Application No. 12/185,506, Filing Date Aug. 4, 2008.</li>
+                            <li>Gwang Ja Jin, Bong Soo Kim, Cheol Sig Pyo, Jong Suk CHAE, Young Ju HWANG, Dong Min KIM
+                                and Seong Lyun KIM, “Wireless sensor network using dynamic message routing algorithm and
+                                method of controlling the wireless sensor network,” US Patent Application No.
+                                12/175,842, Filing Date July 18, 2008.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+            <div>© <span id="y"></span> SIH@SCH — Smart IoT & Hyperconnectivity Research Group.</div>
+            <div class="d-flex gap-3">
+
+                <a href="research.html">Research</a>
+                <a href="publications.html">Publications</a>
+                <a href="index.html#news">News</a>
+                <a href="index.html#team">People</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+
+</html>

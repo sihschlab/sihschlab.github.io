@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SIH@SCH | Research</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --accent: #1ec8ff;
+
+            /* dark theme (nav/hero/footer) */
+            --dark-bg: #0b0f14;
+            --dark-bg2: #070a10;
+            --dark-text: #eaf2ff;
+            --dark-muted: rgba(234, 242, 255, .78);
+            --dark-border: rgba(255, 255, 255, .10);
+            --dark-glass: rgba(10, 14, 20, .45);
+
+            /* light theme (sections) */
+            --light-bg: #f6f8fc;
+            --light-card: rgba(255, 255, 255, 0.88);
+            --light-text: #0b1220;
+            --light-muted: #5f6f86;
+            --light-border: rgba(15, 23, 42, .12);
+            --light-shadow: 0 18px 55px rgba(2, 8, 23, .10);
+        }
+
+        body {
+            background: var(--light-bg);
+            color: var(--light-text);
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+        }
+
+        /* ---------- NAVBAR (DARK) ---------- */
+        .navbar {
+            backdrop-filter: blur(10px);
+            background: rgba(10, 14, 20, 0.70);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .navbar .nav-link {
+            color: rgba(255, 255, 255, 0.75);
+            font-weight: 650;
+        }
+
+        .navbar .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .brand-badge {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            display: inline-grid;
+            place-items: center;
+            background: rgba(30, 200, 255, 0.12);
+            border: 1px solid rgba(30, 200, 255, 0.35);
+            color: var(--accent);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #061019;
+            font-weight: 800;
+        }
+
+        .btn-accent:hover {
+            filter: brightness(.97);
+        }
+
+        .btn-ghost-dark {
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            color: rgba(255, 255, 255, 0.88);
+            background: rgba(255, 255, 255, 0.06);
+            font-weight: 800;
+        }
+
+        .btn-ghost-dark:hover {
+            background: rgba(255, 255, 255, 0.10);
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        /* ---------- HERO (DARK) ---------- */
+        .hero {
+            position: relative;
+            padding: 90px 0 70px;
+            overflow: hidden;
+            background: var(--dark-bg2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg,
+                    rgba(7, 10, 16, 0.92) 0%,
+                    rgba(7, 10, 16, 0.80) 45%,
+                    rgba(7, 10, 16, 0.35) 70%,
+                    rgba(7, 10, 16, 0.12) 100%),
+                url("https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=2400&q=80");
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.02);
+            filter: saturate(1.05) contrast(1.05);
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: -140px -220px auto auto;
+            width: 560px;
+            height: 560px;
+            background: radial-gradient(circle at 30% 30%, rgba(30, 200, 255, 0.30), transparent 60%);
+            filter: blur(12px);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .45rem .75rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.86);
+            font-size: .92rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            font-size: clamp(2.1rem, 4.2vw, 3.2rem);
+            margin-top: .9rem;
+            color: var(--dark-text);
+            text-shadow: 0 12px 40px rgba(0, 0, 0, .45);
+        }
+
+        .hero p.lead {
+            color: var(--dark-muted);
+            max-width: 78ch;
+            margin-top: 1rem;
+            font-size: 1.05rem;
+        }
+
+        /* ---------- LIGHT SECTIONS ---------- */
+        section {
+            padding: 86px 0;
+        }
+
+        .section-title {
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            color: rgba(11, 18, 32, 0.95);
+        }
+
+        .section-sub {
+            color: var(--light-muted);
+            max-width: 92ch;
+        }
+
+        .section-alt {
+            background: rgba(255, 255, 255, 0.55);
+            border-top: 1px solid rgba(15, 23, 42, .06);
+            border-bottom: 1px solid rgba(15, 23, 42, .06);
+        }
+
+        .hc-card {
+            background: var(--light-card);
+            border: 1px solid var(--light-border);
+            border-radius: 18px;
+            box-shadow: 0 16px 45px rgba(2, 8, 23, 0.06);
+            backdrop-filter: blur(10px);
+            transition: 220ms ease;
+        }
+
+        .hc-card:hover {
+            border-color: rgba(30, 200, 255, 0.35);
+            box-shadow: var(--light-shadow);
+            transform: translateY(-2px);
+        }
+
+        .chip {
+            display: inline-flex;
+            padding: .35rem .6rem;
+            border-radius: 999px;
+            border: 1px solid var(--light-border);
+            background: rgba(255, 255, 255, 0.80);
+            color: rgba(11, 18, 32, 0.74);
+            font-size: .85rem;
+            align-items: center;
+            gap: .35rem;
+            font-weight: 700;
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--light-border);
+        }
+
+        /* Prevent ugly wrapping */
+        p,
+        li,
+        a,
+        .text-secondary,
+        .lead {
+            overflow-wrap: anywhere;
+            word-break: normal;
+        }
+
+        /* ---------- FOOTER (DARK) ---------- */
+        .footer {
+            padding: 40px 0;
+            background: var(--dark-bg);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        .footer a {
+            color: rgba(255, 255, 255, 0.72);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: var(--accent);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR (dark) -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container py-2">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <span class="brand-badge"><i class="bi bi-broadcast-pin"></i></span>
+                <span class="fw-bold">SIH@SCH</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+
+                    <li class="nav-item"><a class="nav-link active" aria-current="page"
+                            href="research.html">Research</a></li>
+                    <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#news">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#team">People</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-ghost-dark btn-sm px-3" href="index.html#contact">
+                            <i class="bi bi-people me-1"></i> Collaborate
+                        </a>
+                    </li>
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-accent btn-sm px-3" href="index.html#contact">
+                            Contact <i class="bi bi-arrow-up-right ms-1"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO (dark) -->
+    <header class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="container hero-content">
+            <div class="row align-items-center">
+                <div class="col-lg-9">
+                    <div class="pill">
+                        <i class="bi bi-compass"></i>
+                        <span class="fw-semibold">Research</span>
+                        <span class="text-white-50">|</span>
+                        <span class="text-white-50">Smart IoT • Wireless • AI</span>
+                    </div>
+
+                    <h1>Research Areas</h1>
+                    <p class="lead">
+                        Our research focuses on intelligent IoT systems, ultra-reliable low-latency communications, and
+                        data-driven
+                        optimization for future wireless networks—designed under real-world constraints.
+                    </p>
+
+                    <div class="d-flex gap-2 flex-wrap mt-3">
+                        <a class="btn btn-accent" href="#areas">Explore areas <i class="bi bi-arrow-down ms-1"></i></a>
+                        <a class="btn btn-ghost-dark" href="index.html">Back to Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- RESEARCH CONTENT (light) -->
+    <section id="areas">
+        <div class="container">
+            <div class="d-flex flex-wrap justify-content-between align-items-end gap-3">
+                <div>
+                    <h2 class="section-title">Research Area</h2>
+                    <p class="section-sub mt-2">
+                        We study how intelligent decision-making can improve wireless communications and IoT
+                        systems—especially
+                        under dynamic channels, massive connectivity, and real-time constraints.
+                    </p>
+                </div>
+                <span class="chip"><i class="bi bi-lightning-charge"></i> Focus</span>
+            </div>
+
+            <div class="row g-3 mt-3">
+                <!-- Area 1 -->
+                <div class="col-lg-6">
+                    <div class="hc-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-start gap-3">
+                            <div>
+                                <div class="fw-bold fs-5">
+                                    <i class="bi bi-cpu me-2"></i> Design intelligent IoT system using machine learning
+                                </div>
+                                <div class="text-secondary mt-2">
+                                    Artificial intelligence—especially machine learning—can significantly improve the
+                                    design and
+                                    management of network and communications components by learning from massive traffic
+                                    and context data.
+                                    We are interested in combining IoT with AI to build systems that decide when to
+                                    connect, how to
+                                    communicate, and when to avoid unnecessary transmissions.
+                                </div>
+                            </div>
+                            <span class="chip">AI + IoT</span>
+                        </div>
+
+                        <div class="divider my-3"></div>
+
+                        <div class="text-secondary">
+                            As IoT expands toward a hyperconnected society, maintaining countless connections can become
+                            a burden,
+                            increasing energy use, interference, and new environmental costs. We explore how
+                            intelligence can enable
+                            <b>“intelligent connections”</b>—and even intentional disconnections—without sacrificing
+                            service quality.
+                        </div>
+
+                        <div class="mt-3 p-3 rounded-4"
+                            style="border:1px solid var(--light-border); background: rgba(255,255,255,.65);">
+                            <div class="fw-bold mb-1"><i class="bi bi-chat-dots me-1"></i> Example intuition</div>
+                            <div class="text-secondary">
+                                A drone receives commands from a remote controller. If the wireless link is unstable,
+                                the drone can use
+                                past commands and current context to infer likely future commands. If confidence is
+                                high, some commands
+                                may not need to be sent—saving energy, reducing interference, and freeing resources for
+                                others.
+                                At scale (thousands of drones), this becomes critical—almost like “telepathy.”
+                            </div>
+                        </div>
+
+                        <div class="mt-3 d-flex flex-wrap gap-2">
+                            <span class="chip">Traffic learning</span>
+                            <span class="chip">Context inference</span>
+                            <span class="chip">Resource saving</span>
+                            <span class="chip">Scalable IoT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Area 2 -->
+                <div class="col-lg-6">
+                    <div class="hc-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-start gap-3">
+                            <div>
+                                <div class="fw-bold fs-5">
+                                    <i class="bi bi-shield-check me-2"></i> Ultra-reliable and/or low-latency
+                                    communication for networked control
+                                </div>
+                                <div class="text-secondary mt-2">
+                                    Ultra-reliable communication is a key enabler for wireless networked control systems
+                                    (a variant of IoT),
+                                    including intelligent transportation, disaster/pollution exploration, and
+                                    safety/surveillance applications.
+                                    These systems demand highly reliable delivery of control commands and sensing data
+                                    under mobility and
+                                    unstable networks.
+                                </div>
+                            </div>
+                            <span class="chip">URLLC</span>
+                        </div>
+
+                        <div class="divider my-3"></div>
+
+                        <div class="text-secondary">
+                            Messages can be short and low-rate, but exchanged frequently. Connection setup overhead
+                            (preambles, time
+                            sync, etc.) becomes a severe burden. We study new designs such as random access strategies,
+                            joint
+                            data/meta-data encoding, and short blocklength coding, alongside advanced receivers (signal
+                            processing and
+                            successive interference cancellation) to mitigate collisions.
+                        </div>
+
+                        <div class="mt-3 d-flex flex-wrap gap-2">
+                            <span class="chip">Short packets</span>
+                            <span class="chip">Random access</span>
+                            <span class="chip">Collision resilience</span>
+                            <span class="chip">SIC receivers</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Area 3 -->
+                <div class="col-lg-8">
+                    <div class="hc-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-start gap-3">
+                            <div>
+                                <div class="fw-bold fs-5">
+                                    <i class="bi bi-diagram-3 me-2"></i> Data-oriented design and optimization of
+                                    massive & ultra-reliable wireless IoT
+                                </div>
+                                <div class="text-secondary mt-2">
+                                    5G increased focus on IoT connectivity, especially URLLC and massive MTC (mMTC).
+                                    Traditional statistical
+                                    models become suboptimal as networks grow in complexity and heterogeneity. We
+                                    develop data-oriented
+                                    models and machine learning approaches to optimize wireless IoT operations.
+                                </div>
+                            </div>
+                            <span class="chip">5G/6G IoT</span>
+                        </div>
+
+                        <div class="divider my-3"></div>
+
+                        <div class="text-secondary">
+                            Data-oriented approaches can optimize control information exchange, reduce protocol
+                            overhead, and integrate
+                            communication protocols with data stream mining coming from IoT devices—supporting massive
+                            connectivity and
+                            high reliability under real-world constraints.
+                        </div>
+
+                        <div class="mt-3 d-flex flex-wrap gap-2">
+                            <span class="chip">mMTC</span>
+                            <span class="chip">Protocol optimization</span>
+                            <span class="chip">Control overhead</span>
+                            <span class="chip">Data stream mining</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Area 4 -->
+                <div class="col-lg-4">
+                    <div class="hc-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-start gap-3">
+                            <div>
+                                <div class="fw-bold fs-5">
+                                    <i class="bi bi-badge-vr me-2"></i> Research for VR/AR
+                                </div>
+                                <div class="text-secondary mt-2">
+                                    TBD
+                                </div>
+                            </div>
+                            <span class="chip">VR/AR</span>
+                        </div>
+
+                        <div class="divider my-3"></div>
+
+                        <div class="text-secondary">
+                            This section will be updated with current projects, demos, and collaborations.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (dark) -->
+    <footer class="footer">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+            <div>© <span id="y"></span> SIH@SCH — Smart IoT & Hyperconnectivity Research Group.</div>
+            <div class="d-flex gap-3">
+                <a href="index.html#about">Overview</a>
+                <a href="research.html">Research</a>
+                <a href="index.html#publications">Publications</a>
+                <a href="index.html#news">News</a>
+                <a href="index.html#team">People</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+
+</html>
