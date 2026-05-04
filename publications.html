@@ -249,6 +249,17 @@
             width: auto;
             border-radius: 6px;
         }
+
+        .pub-list {
+            list-style: none;
+            padding-left: 0;
+            margin-left: 0;
+        }
+
+        .pub-list li {
+            color: #000;
+            /* black */
+        }
     </style>
 </head>
 
@@ -307,9 +318,8 @@
 
                     <h1>Publications</h1>
                     <p class="lead">
-                        Selected research outputs including working papers, international journals, conferences,
-                        domestic publications,
-                        and patents.
+                        Selected research outputs updated from the latest CV, including international journals,
+                        conferences, domestic publications, technical reports, and patents.
                     </p>
 
                     <div class="d-flex gap-2 flex-wrap mt-3">
@@ -327,30 +337,7 @@
             <div class="row g-3">
 
                 <!-- Working Papers -->
-                <div class="col-12">
-                    <div class="hc-card p-4">
-                        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
-                            <div>
-                                <h2 class="section-title mb-0">Working Papers</h2>
-                                <div class="section-sub mt-1">Submitted or in preparation.</div>
-                            </div>
-                            <span class="chip"><i class="bi bi-pencil-square"></i> Working</span>
-                        </div>
-                        <div class="divider my-3"></div>
-                        <ol class="pub-list text-secondary mb-0">
-                            <li>Nurul Huda Mahmood, Gilberto Berardinelli, Hirley Alves, Dong Min Kim and Marta Sarret,
-                                “Robust Interference Management and Network Design for Full-Duplex Communication,”
-                                submitted for publication.</li>
-                            <li>Dong Min Kim and Seong-Lyun Kim, “Utilizing Interference: Busy-medium Utilizing Multiple
-                                access Protocol (BUMP),” in preparation.</li>
-                            <li>Dong Min Kim, Nuno K. Pratas and Petar Popovski, “Decoupled Access for Low Latency
-                                Two-Way Communication in Cellular Network,” in preparation.</li>
-                            <li>Jihong Park, Dong Min Kim, Elisabeth De Carvalho and Carles Navarro Manchón, “Hybrid
-                                Precoding for Massive MIMO Systems in Cloud RAN Architecture with Capacity-Limited
-                                Fronthauls,” submitted for publication. <b>[arXiv]</b></li>
-                        </ol>
-                    </div>
-                </div>
+
 
                 <!-- International Journal -->
                 <div class="col-12">
@@ -364,73 +351,188 @@
                         </div>
                         <div class="divider my-3"></div>
 
-                        <ol class="pub-list text-secondary mb-0" start="1" reversed>
-                            <li><b>Huy Truong Dinh</b>, Jaeseok Yun, Dong Min Kim, Kyu-Haeng Lee, Daehee Kim, “A Home
-                                Energy Management System with Renewable Energy and Energy Storage Utilizing Main Grid
-                                and Electricity Selling,” <i>IEEE Access</i>, 2020. <b>[VIEW]</b></li>
-                            <li>Wenqian Huang, Dong Min Kim, Wenrui Ding and Petar Popovski, “Joint Optimization of
+                        <ul class="pub-list text-secondary mb-0">
+
+                            <li style="color: black;">
+                                <b>[J20]</b>
+                                Daniel Poul Mtowe, Lika Long and Dong Min Kim, “Low-Latency Edge-Enabled
+                                Digital Twin
+                                System for Multi-Robot Collision Avoidance and Remote Control,” <i>Sensors</i>, 25(15),
+                                July 2025.
+                                <a href="https://doi.org/10.3390/s25154666" target="_blank"><b>[link]</b></a>
+                            </li>
+
+
+                            <li>
+                                <b>[J19]</b>
+                                Youna Jang, Chang In Baek, Dong Min Kim, Dal Ahn and Seong-Ho Son, “A Sub-6GHz Switching
+                                System for Simultaneous Use of 2-Port Network Analyzer by 4 Users,” <i>International
+                                    Journal of RF and Microwave Computer-Aided Engineering</i>, December 2023.
+                                <a href="https://doi.org/10.1155/2023/8827119" target="_blank"><b>[link]</b></a>
+                            </li>
+
+                            <li>
+                                <b>[J18]</b>
+                                Jaeseok Yun, Daehee Kim, Dong Min Kim, Taewon Song and Jiyoung Woo, “GAN-based sensor
+                                data augmentation: Application for counting moving people and detecting directions using
+                                PIR sensors,” <i>Engineering Applications of Artificial Intelligence</i>, 117, October
+                                2023.
+                                <a href="https://doi.org/10.1016/j.engappai.2022.105508"
+                                    target="_blank"><b>[link]</b></a>
+                            </li>
+
+
+                            <li>
+                                <b>[J17]</b>
+                                Daniel Poul Mtowe and Dong Min Kim, “Edge-Computing-Enabled Low-Latency Communication
+                                for a Wireless Networked Control System,” <i>Electronics</i>, 12(14), July 2023.
+                                <a href="https://doi.org/10.3390/electronics12143181" target="_blank"><b>[link]</b></a>
+                            </li>
+
+
+                            <li>
+                                <b>[J16]</b>
+                                Dong Min Kim and Seong-Lyun Kim, “CSNOMA: Carrier Sense Non-Orthogonal Multiple Access,”
+                                <i>Sensors</i>, 20(18), September 2020.
+                                <a href="https://doi.org/10.3390/s20185024" target="_blank"><b>[link]</b></a>
+                            </li>
+
+                            <li>
+                                <b>[J15]</b>
+                                Huy Truong Dinh, Jaeseok Yun, Dong Min Kim, Kyu-Haeng Lee, Daehee Kim, “A Home Energy
+                                Management System with Renewable Energy and Energy Storage Utilizing Main Grid and
+                                Electricity Selling,” <i>IEEE Access</i>, 8, pp. 49436–49450, 2020.
+                                <a href="https://doi.org/10.1109/ACCESS.2020.2979189" target="_blank"><b>[link]</b></a>
+                            </li>
+
+                            <li>
+                                <b>[J14]</b>
+                                Wenqian Huang, Dong Min Kim, Wenrui Ding and Petar Popovski, “Joint Optimization of
                                 Altitude and Transmission Direction in UAV-based Two-Way Communication,” <i>IEEE
-                                    Wireless Communications Letters</i>, 8 (4), pp. 984-987, April 2019. <b>[VIEW]</b>
-                                <b>[arXiv]</b>
+                                    Wireless Communications Letters</i>, 8(4), pp. 984–987, April 2019.
+                                <a href="https://doi.org/10.1109/LWC.2019.2903041" target="_blank"><b>[link]</b></a>
+                                <a href="https://arxiv.org/abs/1805.08635" target="_blank"><b>[arXiv]</b></a>
                             </li>
-                            <li>Jinho Choi, Sang Yeob Jung, Seong-Lyun Kim, Dong Min Kim and Petar Popovski,
+
+                            <li>
+                                <b>[J13]</b>
+                                Jinho Choi, Sang Yeob Jung, Seong-Lyun Kim, Dong Min Kim and Petar Popovski,
                                 “User-centric resource allocation with two-dimensional reverse pricing in mobile
-                                communication services,” <i>Journal of Communications and Networks</i>, 31 (2),
-                                pp.148-157, April 2019. <b>[VIEW]</b></li>
-                            <li>Petar Popovski, Jimmy J. Nielsen, Cedomir Stefanovic, Elisabeth de Carvalho, Erik Ström,
+                                communication services,” <i>Journal of Communications and Networks</i>, 31(2), pp.
+                                148–157, April 2019.
+                                <a href="http://www.jcn.or.kr/html/?pmode=BBBS0000800001&smode=ajax&fn=downFile&fileSeq=1784"
+                                    target="_blank"><b>[link]</b></a>
+                            </li>
+
+                            <li>
+                                <b>[J12]</b>
+                                Petar Popovski, Jimmy J. Nielsen, Cedomir Stefanović, Elisabeth de Carvalho, Erik Ström,
                                 Kasper F. Trillingsgaard, Alexandru-Sabin Bana, Dong Min Kim, Radoslaw Kotaba, Jihong
-                                Park and René B. Sørensen, “Wireless Access for Ultra-Reliable Low-Latency Communication
-                                (URLLC): Principles and Building Blocks,” <i>IEEE Network</i>, 32 (2), March 2018.
-                                <b>[VIEW]</b> <b>[arXiv]</b>
+                                Park and René Brandborg Sørensen, “Wireless Access for Ultra-Reliable Low-Latency
+                                Communication (URLLC): Principles and Building Blocks,” <i>IEEE Network</i>, 32(2), pp.
+                                16–23, March-April 2018.
+                                <a href="https://doi.org/10.1109/MNET.2018.1700258" target="_blank"><b>[link]</b></a>
+                                <a href="https://arxiv.org/abs/1708.07862" target="_blank"><b>[arXiv]</b></a>
                             </li>
-                            <li>Jeemin Kim, Hyun-Kwan Lee, Dong Min Kim and Seong-Lyun Kim, “Delay Performance of
+
+                            <li>
+                                <b>[J11]</b>
+                                Jeemin Kim, Hyun-Kwan Lee, Dong Min Kim and Seong-Lyun Kim, “Delay Performance of
                                 Two-Stage Access in Cellular Internet of Things Networks,” <i>IEEE Transactions on
-                                    Vehicular Technology</i>, 67 (4), pp. 3521-3533, April 2018. <b>[VIEW]</b></li>
-                            <li>Dong Min Kim, René B. Sørensen, Kashif Mahmood, Olav Norvald Østerbø, Andrea Zanella and
-                                Petar Popovski, “Data Aggregation and Packet Bundling of Uplink Small Packets for
-                                Monitoring Applications in LTE,” <i>IEEE Network</i>, 31 (6), pp. 32-38, November 2017.
-                                <b>[VIEW]</b> <b>[arXiv]</b>
+                                    Vehicular Technology</i>, 67(4), pp. 3521–3533, April 2018.
+                                <a href="https://doi.org/10.1109/TVT.2017.2776950" target="_blank"><b>[link]</b></a>
                             </li>
-                            <li>Taehoon Kim, Dong Min Kim, Nuno Pratas, Petar Popovski and Dan Keun Sung, “An Enhanced
+
+                            <li>
+                                <b>[J10]</b>
+                                Dong Min Kim, René Brandborg Sørensen, Kashif Mahmood, Olav Norvald Østerbø, Andrea
+                                Zanella and Petar Popovski, “Data Aggregation and Packet Bundling of Uplink Small
+                                Packets for Monitoring Applications in LTE,” <i>IEEE Network</i>, 31(6), pp. 32–38,
+                                November 2017.
+                                <a href="https://doi.org/10.1109/MNET.2017.1700090" target="_blank"><b>[link]</b></a>
+                                <a href="https://arxiv.org/abs/1709.02134" target="_blank"><b>[arXiv]</b></a>
+                            </li>
+
+                            <li>
+                                <b>[J9]</b>
+                                Taehoon Kim, Dong Min Kim, Nuno Pratas, Petar Popovski and Dan Keun Sung, “An Enhanced
                                 Access Reservation Protocol With a Partial Preamble Transmission Mechanism in NB-IoT
-                                Systems,” <i>IEEE Communications Letters</i>, 21 (10), pp. 2270-2273, October 2017.
-                                <b>[VIEW]</b>
+                                Systems,” <i>IEEE Communications Letters</i>, 21(10), pp. 2270–2273, October 2017.
+                                <a href="http://dx.doi.org/10.1109/LCOMM.2017.2720585" target="_blank"><b>[link]</b></a>
                             </li>
-                            <li>René B. Sørensen, Dong Min Kim, Jimmy J. Nielsen and Petar Popovski, “Analysis of
-                                Latency and MAC-Layer Performance for Class A LoRaWAN,” <i>IEEE Wireless Communications
-                                    Letters</i>, 6 (5), pp. 566-569, October 2017. <b>[VIEW]</b></li>
-                            <li>Dong Min Kim and Petar Popovski, “Reliable Uplink Communication through Double
+
+                            <li>
+                                <b>[J8]</b>
+                                René Sørensen, Dong Min Kim, Jimmy J. Nielsen and Petar Popovski, “Analysis of Latency
+                                and MAC-layer Performance for Class A LoRaWAN,” <i>IEEE Wireless Communications
+                                    Letters</i>, 6(5), pp. 566–569, October 2017.
+                                <a href="http://dx.doi.org/10.1109/LWC.2017.2716932" target="_blank"><b>[link]</b></a>
+                            </li>
+
+                            <li>
+                                <b>[J7]</b>
+                                Dong Min Kim and Petar Popovski, “Reliable Uplink Communication through Double
                                 Association in Wireless Heterogeneous Networks,” <i>IEEE Wireless Communications
-                                    Letters</i>, 5 (3), pp. 312-315, June 2016. <b>[VIEW]</b> <b>[arXiv]</b></li>
-                            <li>Henning Thomsen, Petar Popovski, Elisabeth de Carvalho, Nuno K. Pratas, Dong Min Kim and
-                                Federico Boccardi, “CoMPflex: CoMP for In-Band Wireless Full Duplex,” <i>IEEE Wireless
-                                    Communications Letters</i>, 5 (2), pp. 144-147, April 2016. <b>[VIEW]</b>
-                                <b>[arXiv]</b>
+                                    Letters</i>, 5(3), pp. 312–315, June 2016.
+                                <a href="http://dx.doi.org/10.1109/LWC.2016.2550590" target="_blank"><b>[link]</b></a>
+                                <a href="http://arxiv.org/abs/1507.08574" target="_blank"><b>[arXiv]</b></a>
                             </li>
-                            <li>Germán C. Madueño, Jimmy J. Nielsen, Dong Min Kim, Nuno K. Pratas, Čedomir Stefanović
+
+                            <li>
+                                <b>[J6]</b>
+                                Henning Thomsen, Petar Popovski, Elisabeth de Carvalho, Nuno K. Pratas, Dong Min Kim and
+                                Federico Boccardi, “CoMPflex: CoMP for In-Band Wireless Full Duplex,” <i>IEEE Wireless
+                                    Communications Letters</i>, 5(2), pp. 144–147, April 2016.
+                                <a href="http://dx.doi.org/10.1109/LWC.2015.2510636" target="_blank"><b>[link]</b></a>
+                                <a href="http://arxiv.org/abs/1507.08574" target="_blank"><b>[arXiv]</b></a>
+                            </li>
+
+                            <li>
+                                <b>[J5]</b>
+                                Germán C. Madueño, Jimmy J. Nielsen, Dong Min Kim, Nuno K. Pratas, Cedomir Stefanović
                                 and Petar Popovski, “Assessment of LTE Wireless Access for Monitoring of Energy
                                 Distribution in the Smart Grid,” <i>IEEE Journal on Selected Areas in
-                                    Communications</i>, 34 (3), pp. 675-688, March 2016. <b>[VIEW]</b> <b>[arXiv]</b>
+                                    Communications</i>, 34(3), pp. 675–688, March 2016.
+                                <a href="http://dx.doi.org/10.1109/JSAC.2016.2525639" target="_blank"><b>[link]</b></a>
+                                <a href="http://arxiv.org/abs/1508.02556" target="_blank"><b>[arXiv]</b></a>
                             </li>
-                            <li>Dong Min Kim and Seong-Lyun Kim, “Exploiting Regional Differences: A Spatially Adaptive
-                                Random Access,” <i>IEEE Transactions on Wireless Communications</i>, 14 (8), pp.
-                                4342-4352, August 2015. <b>[VIEW]</b> <b>[arXiv]</b></li>
-                            <li>Dong Min Kim and Seong-Lyun Kim, “An Iterative Algorithm for Optimal Carrier Sensing
-                                Threshold in Random CSMA/CA Wireless Networks,” <i>IEEE Communications Letters</i>, 17
-                                (11), pp. 2076-2079, November 2013. <b>[VIEW]</b> <b>[arXiv]</b> <b>[Derivation of Eq.
-                                    (5)]</b></li>
-                            <li>Hyun-kwan Lee, Dong Min Kim, YoungJu Hwang, Seung Min Yu and Seong-Lyun Kim,
-                                “Feasibility of Cognitive Machine-to-Machine Communication Using Cellular Bands,”
-                                <i>IEEE Wireless Communications</i>, 20 (2), pp. 97-103, April 2013. <b>[VIEW]</b>
+                            <li>
+                                <b>[J4 ]</b>
+                                Dong Min Kim and Seong-Lyun Kim, “Exploiting Regional Differences: A Spatially Adaptive
+                                Random Access,” <i>IEEE Transactions on Wireless Communications</i>, 14(8), pp.
+                                4342–4352, August 2015.
+                                <a href="http://dx.doi.org/10.1109/TWC.2015.2419633" target="_blank"><b>[link]</b></a>
+                                <a href="http://arxiv.org/abs/1403.3891" target="_blank"><b>[arXiv]</b></a>
                             </li>
-                            <li>Dong Min Kim, Young Ju Hwang, Seong-Lyun Kim and Gwang-Ja Jin, “Testbed Results of an
-                                Opportunistic Routing for Multi-Robot Wireless Networks,” <i>Computer
-                                    Communications</i>, 34 (18), pp. 2174-2183, December 2011. <b>[VIEW]</b></li>
-                        </ol>
+                            <li>
+                                <b>[J3]</b>
+                                Dong Min Kim and Seong-Lyun Kim, “An Iterative Algorithm for Optimal Carrier Sensing
+                                Threshold in Random CSMA/CA Wireless Networks,” <i>IEEE Communications Letters</i>,
+                                17(11), pp. 2076–2079, November 2013.
+                                <a href="http://dx.doi.org/10.1109/LCOMM.2013.092013.131519"
+                                    target="_blank"><b>[link]</b></a>
+                                <a href="http://arxiv.org/abs/1312.5800" target="_blank"><b>[arXiv]</b></a>
+                            </li>
 
-                        <div class="text-secondary small mt-3">
-                            *Order shown as provided in your list (latest at top visually).
-                        </div>
+
+                            <li>
+                                <b>[J2]</b>
+                                Hyun-kwan Lee, Dong Min Kim, YoungJu Hwang, Seung Min Yu and Seong-Lyun Kim,
+                                “Feasibility of Cognitive Machine-to-Machine Communication Using Cellular Bands,”
+                                <i>IEEE Wireless Communications</i>, 20(2), pp. 97–103, April 2013.
+                                <a href="http://dx.doi.org/10.1109/MWC.2013.6507400" target="_blank"><b>[link]</b></a>
+                            </li>
+
+                            <li><b>[J1]</b>
+                                Dong Min Kim, Young Ju Hwang, Seong-Lyun Kim and Gwang-Ja Jin, “Testbed Results of an
+                                Opportunistic Routing for Multi-Robot Wireless Networks,” <i>Computer
+                                    Communications</i>, 34(18), pp. 2174–2183, December 2011.
+                                <a href="http://dx.doi.org/10.1016/j.comcom.2011.01.009"
+                                    target="_blank"><b>[link]</b></a>
+                            </li>
+                        </ul>
+
+
                     </div>
                 </div>
 
@@ -446,56 +548,130 @@
                         </div>
                         <div class="divider my-3"></div>
 
-                        <ol class="pub-list text-secondary mb-0" start="1" reversed>
-                            <li>Nurul Huda Mahmood, Daniela Laselva, David Palacios, Mustafa Emara, Miltiades C.
-                                Filippou, Dong Min Kim and Isabel de-la-Bandera, “Multi-Channel Access Solutions for 5G
-                                New Radio,” in Proc. IEEE WCNC Workshop on Critical and Massive Connectivity solutions
-                                for 5G and Beyond (WSCMC) 2019, Marrakech, Morocco, April 15-18, 2019.</li>
-                            <li>Ming Shen, Shuai Zhang, Dong Min Kim, Ondrej Franek, Jan H. Mikkelsen and Gert F.
+                        <ul class="pub-list text-secondary mb-0">
+                            <li>
+                                <b>[C13]</b>
+                                Dong Min Kim, Young Hoon Suh and Issamu Fred Ngwalo, “Efficient Data Communication for
+                                Deep Learning Application via Latent Code Transmission in B5G Wireless Networks,” in
+                                Proc. IEEE ICTC 2023, Jeju, South Korea, October 11–13, 2023.
+                                <a href="https://doi.org/10.1109/ICTC58733.2023.10392538"
+                                    target="_blank"><b>[link]</b></a>
+                            </li>
+
+                            <li>
+                                <b>[C12]</b>
+                                Daniel Poul Mtowe, Seong-Ho Son, Dal Ahn and Dong Min Kim, “Deep Reinforcement
+                                Learning-based Auto-tuning Algorithm for Cavity Filters,” in Proc. PIERS 2023, Prague,
+                                Czech Republic, July 3–6, 2023.
+                                <a href="https://doi.org/10.1109/PIERS59004.2023.10221259"
+                                    target="_blank"><b>[link]</b></a>
+                            </li>
+
+                            <li>
+                                <b>[C11]</b>
+                                Nurul Huda Mahmood, Daniela Laselva, David Palacios, Mustafa Emara, Miltiadis Filippou,
+                                Dong Min Kim and Isabel de la Bandera, “Multi-Channel Access Solutions for 5G New
+                                Radio,” in Proc. IEEE WCNC Workshop on Critical and Massive Connectivity solutions for
+                                5G and Beyond (WSCMC) 2019, Marrakech, Morocco, April 15–18, 2019.
+                            </li>
+
+                            <li>
+                                <b>[C10]</b>
+                                Ming Shen, Shuai Zhang, Dong Min Kim, Ondrej Franek, Jan H. Mikkelsen and Gert F.
                                 Pedersen, “Auditing of Ultra Dense RFID Straws in Cryogenic Container at -196°C,” in
                                 Proc. IEEE International Conference on RFID Technology & Application (RFID-TA) 2018,
-                                Macau, China, September 26-28, 2018. <b>[VIEW]</b></li>
-                            <li>Dong Min Kim, Nuno K. Pratas and Petar Popovski, “Achieving Low Latency Two-Way
-                                Communication by Downlink and Uplink Decoupled Access,” in Proc. SPAWC 2018, Kalamata,
-                                Greece, June 25-28, 2018. <b>[arXiv]</b></li>
-                            <li>Dong Min Kim, Jihong Park, Elisabeth De Carvalho and Carles Navarro Manchón, “Massive
+                                Macau, China, September 26–28, 2018.
+                                <a href="https://doi.org/10.1109/RFID-TA.2018.8552768" target="_blank"><b>[link]</b></a>
+                            </li>
+
+                            <li>
+                                <b>[C9]</b>
+                                Dong Min Kim, Nuno Pratas and Petar Popovski, “Achieving Low Latency Two-Way
+                                Communication by Downlink and Uplink Decoupled Access,” in Proc. IEEE SPAWC 2018,
+                                Kalamata, Greece, June 25–28, 2018.
+                                <a href="https://arxiv.org/abs/1803.02243" target="_blank"><b>[arXiv]</b></a>
+                            </li>
+
+                            <li>
+                                <b>[C8]</b>
+                                Dong Min Kim, Jihong Park, Elisabeth de Carvalho and Carles Navarro Manchón, “Massive
                                 MIMO Functionality Splits based on Hybrid Analog-Digital Precoding in a C-RAN
                                 Architecture,” in Proc. Asilomar Conference on Signals, Systems, and Computers 2017,
-                                Asilomar, CA, USA, October 29-November 1, 2017.</li>
-                            <li>Dong Min Kim, Henning Thomsen and Petar Popovski, “On a User-Centric Base Station
+                                Pacific Grove, CA, USA, October 29–November 1, 2017.
+                            </li>
+
+                            <li>
+                                <b>[C7]</b>
+                                Dong Min Kim, Henning Thomesen and Petar Popovski, “On a User-Centric Base Station
                                 Cooperation Scheme for Reliable Communications,” in Proc. IEEE VTC 2017 Spring, Sydney,
-                                Australia, June 4-7, 2017. <b>[arXiv]</b></li>
-                            <li>Jihong Park, Dong Min Kim, Petar Popovski and Seong-Lyun Kim, “Revisiting Frequency
+                                Australia, June 4–7, 2017.
+                                <a href="https://arxiv.org/abs/1703.00662" target="_blank"><b>[arXiv]</b></a>
+                            </li>
+
+                            <li>
+                                <b>[C6]</b>
+                                Jihong Park, Dong Min Kim, Petar Popovski and Seong-Lyun Kim, “Revisiting Frequency
                                 Reuse towards Supporting Ultra-Reliable Ubiquitous-Rate Communication,” in Proc. IEEE
-                                Workshop on Spatial Stochastic Models for Wireless Networks (SpaSWiN) 2017, Paris,
-                                France, May 19, 2017. <b>[VIEW]</b> <b>[arXiv]</b></li>
-                            <li>Henning Thomsen, Dong Min Kim, Petar Popovski, Nuno K. Pratas and Elisabeth de Carvalho,
+                                Workshop on Spatial Stochastic Models for Wireless Networks (SpaSWiN), Paris, France,
+                                May 19, 2017.
+                                <a href="https://doi.org/10.23919/WIOPT.2017.7959944" target="_blank"><b>[link]</b></a>
+                                <a href="https://arxiv.org/abs/1703.04838" target="_blank"><b>[arXiv]</b></a>
+                            </li>
+
+                            <li>
+                                <b>[C5]</b>
+                                Henning Thomesen, Dong Min Kim, Petar Popovski, Nuno K. Pratas and Elisabeth de
+                                Carvalho,
                                 “Full Duplex Emulation via Spatial Separation of Half Duplex Nodes in a Planar Cellular
-                                Network,” in Proc. IEEE SPWAC 2016, Edinburgh, UK, July 3-6, 2016. <b>[VIEW]</b>
-                                <b>[arXiv]</b>
+                                Network,” in Proc. IEEE SPAWC 2016, Edinburgh, UK, July 3–6, 2016.
+                                <a href="https://doi.org/10.1109/SPAWC.2016.7536747" target="_blank"><b>[link]</b></a>
+                                <a href="http://arxiv.org/abs/1605.02314" target="_blank"><b>[arXiv]</b></a>
                             </li>
-                            <li>Jimmy J. Nielsen, Dong Min Kim, German C. Madueno, Nuno K. Pratas and Petar Popovski, “A
+
+                            <li>
+                                <b>[C4]</b>
+                                Jimmy J. Nielsen, Dong Min Kim, German C. Madueno, Nuno K. Pratas and Petar Popovski, “A
                                 Tractable Model of the LTE Access Reservation Procedure for Machine-Type
-                                Communications,” in Proc. IEEE GLOBECOM 2015, San Diego, CA, USA, December 6-10, 2015.
-                                <b>[VIEW]</b> <b>[arXiv]</b>
+                                Communications,” in Proc. IEEE GLOBECOM 2015, San Diego, CA, USA, December 6–10, 2015.
+                                <a href="http://dx.doi.org/10.1109/GLOCOM.2015.7417529"
+                                    target="_blank"><b>[link]</b></a>
+                                <a href="http://arxiv.org/abs/1505.01713" target="_blank"><b>[arXiv]</b></a>
                             </li>
-                            <li>Taehyoung Shim, Dong Min Kim and Seong-Lyun Kim, “An Introduction to Socially Connected
+
+                            <li>
+                                <b>[C3]</b>
+                                Taehyoung Shim, Dong Min Kim and Seong-Lyun Kim, “An Introduction to Socially Connected
                                 Machines: Characteristics and Applications,” in Proc. The 3rd IFAC Symposium on
-                                Telematics Applications, Seoul, Korea, November 11-13, 2013. <b>[PDF]</b> <b>[arXiv]</b>
+                                Telematics Applications, Seoul, Korea, November 11–13, 2013.
+                                <a href="https://sites.google.com/site/don9min/msn_ta2013.pdf?attredirects=0&d=1"
+                                    target="_blank"><b>[link]</b></a>
+                                <a href="http://arxiv.org/abs/1312.5830" target="_blank"><b>[arXiv]</b></a>
                             </li>
-                            <li>Dong Min Kim and Seong-Lyun Kim, “Network Coded Rate Scheduling for Two-way Relay
-                                Networks,” in Proc. European Wireless 2011, Vienna, Austria, April 27-29, 2011.
-                                <b>[VIEW]</b> <b>[PDF(draft)]</b> <b>[arXiv]</b>
+
+                            <li>
+                                <b>[C2]</b>
+                                Dong Min Kim and Seong-Lyun Kim, “Network Coded Rate Scheduling for Two-way Relay
+                                Networks,” in Proc. European Wireless 2011, Vienna, Austria, April 27–29, 2011.
+                                <a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5898026"
+                                    target="_blank"><b>[link]</b></a>
+                                <a href="http://arxiv.org/abs/1312.5797" target="_blank"><b>[arXiv]</b></a>
                             </li>
-                            <li>Dong Min Kim, Young Ju Hwang, Seong-Lyun Kim, Gwang-Ja Jin and Bong-Soo Kim, “Random
+
+                            <li>
+                                <b>[C1]</b>
+                                Dong Min Kim, Young Ju Hwang, Seong-Lyun Kim, Gwang-Ja Jin and Bong-Soo Kim, “Random
                                 Basketball Routing for ZigBee based Sensor Networks,” in Proc. IEEE APWCS 2007, Hsinchu,
-                                Taiwan, August 20-21, 2007. <b>[PDF]</b> <b>[arXiv]</b></li>
-                        </ol>
+                                Taiwan, August 20–21, 2007.
+                                <a href="https://sites.google.com/site/don9min/basket_apwcs.pdf?attredirects=0"
+                                    target="_blank"><b>[link]</b></a>
+                                <a href="http://arxiv.org/abs/1312.5794" target="_blank"><b>[arXiv]</b></a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
                 <!-- Domestic Journal -->
-                <div class="col-lg-6">
+                <!-- <div class="col-lg-6">
                     <div class="hc-card p-4 h-100">
                         <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
                             <div>
@@ -505,34 +681,50 @@
                             <span class="chip"><i class="bi bi-journal"></i> Domestic</span>
                         </div>
                         <div class="divider my-3"></div>
-                        <ol class="pub-list text-secondary mb-0">
+                        <ol class="pub-list text-secondary mb-0" start="3" reversed>
+                            <li>Dong Min Kim, “Base Station Cooperation Scheme for Low-Latency Two-Way Communication,”
+                                <i>Journal of the Korea Institute of Information and Communication Engineering
+                                    (JKIICE)</i>, 24(6), pp. 751–758, June 2020.
+                            </li>
+                            <li>Dong Min Kim, “Implementation of Intelligent Remote Control System based on Internet of
+                                Things,” <i>Journal of the Korea Institute of Information and Communication Engineering
+                                    (JKIICE)</i>, 24(4), pp. 546–552, April 2020.</li>
                             <li>Bong-Suk Shin, Hyun-kwan Lee, Jung Min Park, Dong Min Kim, Seong-Lyun Kim, Sang-il Lee
                                 and Myung-kil Ahn, “Cross-layer Design of Routing and Link Capacity Extension for QoS in
                                 Communication Networks,” <i>The Journal of Korea Information and Communications Society
-                                    (J-KICS)</i>, 35 (12), pp. 1749-1757, December 2010. <b>[VIEW]</b></li>
+                                    (J-KICS)</i>, 35(12), pp. 1749–1757, December 2010.</li>
                         </ol>
                     </div>
-                </div>
+                </div> -->
 
-                <!-- Domestic Conference -->
-                <div class="col-lg-6">
+                <!-- Technical Reports -->
+                <div class="col-lg-12">
                     <div class="hc-card p-4 h-100">
                         <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
                             <div>
-                                <h2 class="section-title mb-0">Domestic Conference</h2>
-                                <div class="section-sub mt-1">Korean domestic conferences.</div>
+                                <h2 class="section-title mb-0">Technical Reports</h2>
+                                <div class="section-sub mt-1">Selected research and project reports.</div>
                             </div>
-                            <span class="chip"><i class="bi bi-people"></i> Domestic</span>
+                            <span class="chip"><i class="bi bi-file-earmark-text"></i> Reports</span>
                         </div>
                         <div class="divider my-3"></div>
-                        <ol class="pub-list text-secondary mb-0" start="1" reversed>
-                            <li>Dong Min Kim, “Implementation of a Reliable Networked Control System using Edge
-                                Computing,” in Proc. Korean Institute of Communications and Information Sciences (KICS)
-                                Winter Conference 2020, South Korea, February 5-7, 2020.</li>
-                            <li>Dong Min Kim, Joonsoo Kim and Seong-Lyun Kim, “An Implementation of IoT Inferring Lost
-                                Control Commands via Unreliable Channels,” in Proc. Joint Conference on Communications
-                                and Information (JCCI) 2018, South Korea, May 2-4, 2018.</li>
-                        </ol>
+                        <ul class="pub-list text-secondary mb-0">
+                            <li><b>[T3]</b>
+                                Business impact assessment, EU FP7 QUASAR Deliverable D1.3.
+                                <a href="http://quasarspectrum.eu/images/stories/Documents/deliverables/QUASAR_D1.3.pdf"
+                                    target="_blank"><b>[link]</b></a>
+                            </li>
+                            <li>
+                                <b>[T2]</b>
+                                Regulatory feasibility assessment, EU FP7 QUASAR Deliverable D1.2.
+                                <a href="http://quasarspectrum.eu/images/stories/Documents/deliverables/QUASAR-D1.2.pdf"
+                                    target="_blank"><b>[link]</b></a>
+                            </li>
+                            <li>
+                                <b>[T1]</b>
+                                Models, scenario, sharing schemes, EU FP7 QUASAR Deliverable D1.1.
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
@@ -549,36 +741,120 @@
                         <div class="divider my-3"></div>
 
                         <ul class="pub-list text-secondary mb-0">
-                            <li>Chang Sik Park, Hak Jin Chong, Seong-Lyun Kim, Dong Min Kim, So Young Kim, Woo Ram Lee
-                                and Hyun Kwan Lee, “무선 센서 네트워크에서 그룹의 이동성 예측 장치 및 그 방법 (Apparatus and method for the
-                                prediction of group mobility in wireless sensor network),” Korea Patent Application No.
-                                10-2008-0016876, Filing Date Feb. 25, 2008. Korea Patent No. 0982439, Registering Date
-                                Sep. 09, 2010.</li>
-                            <li>Gwang-Ja Jin, Bong-Soo Kim, Cheol Sig Pyo, Jong Suk Chae, Young Ju Hwang, Dong Min Kim
-                                and Seong-Lyun Kim, “동적 기반의 메시지 전달 방법을 이용한 무선 센서 네트워크 및 그 제어 방법 (A wireless sensor
-                                network structure and the control method thereof using dynamic message routing
-                                algorithm),” Korea Patent Application No. 10-2007-0123644, Filing Date Nov. 30, 2007.
-                                Korea Patent No. 0943175, Registering Date Feb. 11, 2010.</li>
-                            <li>Gwang-Ja Jin, Bong-Soo Kim, Cheol Sig Pyo, Jong Suk Chae, Young Ju Hwang, Dong Min Kim
-                                and Seong-Lyun Kim, “중계확률 기반의 무선 네트워크의 메시지 전달 방법 (A routing method for wireless network
-                                based on relay probability),” Korea Patent Application No. 10-2007-0123642, Filing Date
-                                Nov. 30, 2007. Korea Patent No. 0943174, Registering Date Feb. 11, 2010.</li>
-                            <li>Zu Cheul Lee, Kun Ho Yi, Dong Min Kim, Hyun Kwan Lee and Seong-Lyun Kim, “구성원 이동성 예측 기반의
-                                센서로봇 제어 방법 (Method for controlling the sensor robot based on member mobility
-                                prediction),” Korea Patent Application No. 10-2008-0135665, Filing Date Dec. 29, 2008.
+                            <li>
+                                <b>[P15]</b>
+                                Dong Min Kim, Min Hyeok Park, Yeong Guk Park, Jang Hee Kim, “Apparatus and Method for
+                                Estimating Equipment Operation Time using Sensor Data Measured through a Plurality of
+                                Sensors,” Korea Patent Application No. 10-2026-0016562, Filing Date Jan. 28, 2026.
                             </li>
-                            <li>Zu Cheul Lee, Hak Jin Chong, Dong Min Kim, So Young Kim and Seong-Lyun Kim, “무선 센서
-                                네트워크에서 센서노드 및 센서로봇의 협업적 이동성 예측 장치와 센서로봇의 제어 방법 (Apparatus for the cooperative mobility
-                                prediction of sensor nodes and sensor robots in wireless sensor network and method for
-                                controlling a sensor robot),” Korea Patent Application No. 10-2008-0133916, Filing Date
-                                Dec. 24, 2008.</li>
-                            <li>Gwang Ja Jin, Bong Soo Kim, Cheol Sig Pyo, Jong Suk Chae, Young Ju Hwang, Dong Min Kim
-                                and Seong Lyun Kim, “Method for routing message in wireless network based on relay
-                                probability,” US Patent Application No. 12/185,506, Filing Date Aug. 4, 2008.</li>
-                            <li>Gwang Ja Jin, Bong Soo Kim, Cheol Sig Pyo, Jong Suk CHAE, Young Ju HWANG, Dong Min KIM
-                                and Seong Lyun KIM, “Wireless sensor network using dynamic message routing algorithm and
+
+                            <li>
+                                <b>[P14]</b> Dong Min Kim, Dal Ahn, Seong-Ho Son, “Method for automatic tuning for
+                                reverse-forward
+                                related cavity filters, and apparatus thereof,” Korea Patent Application No.
+                                10-2024-0191307, Filing Date Dec. 19, 2024. Korea Patent No. 10-2910808, Registering
+                                Date Jan. 7, 2026.
+                            </li>
+
+                            <li>
+                                <b>[P13]</b>
+                                Dong Min Kim, Dal Ahn, Seong-Ho Son, “Equivalent circuit-based simulation program for
+                                automatic tuning of cavity filters,” Korea Patent Application No. 10-2024-0081898,
+                                Filing Date Jun. 24, 2024. Korea Patent No. 10-2870707, Registering Date Oct. 13, 2025.
+                            </li>
+
+                            <li>
+                                <b>[P12]</b>
+                                Jongsik Lim, Dal Ahn, Sang-Min Han, Seong-Ho Son, Dong Min Kim, “Signal Transmission
+                                Structures Between Microstrip Lines and Coplanar Waveguide Lines,” Korea Patent
+                                Application No. 10-2023-0138357, Filing Date Oct. 17, 2023. Korea Patent No. 10-2826618,
+                                Registering Date Jun. 24, 2025.
+                            </li>
+
+                            <li>
+                                <b>[P11]</b>
+                                Jae-bok Lee, Sang-Hyo Kang, Yun Keun Park, Chang-in Back, Young Nam Ji, Heung-Goo Jun,
+                                Dal Ahn, Seong-Ho Son, Dong Min Kim, “Automatic delay measurement device for extended
+                                switch of network analyzer and method thereof,” Korea Patent Application No.
+                                10-2023-0072704, Filing Date Jun. 7, 2023. Korea Patent No. 10-2579193, Registering Date
+                                Sept. 12, 2023.
+                            </li>
+
+                            <li>
+                                <b>[P10]</b>
+                                Jae-bok Lee, Young Pyo Hong, Yun Keun Park, Chang-in Back, Dal Ahn, Heung-Goo Jun,
+                                Seong-Ho Son, Dong Min Kim, “Expansion device for electronic equipment test instrument
+                                and method thereof,” Korea Patent Application No. 10-2022-0166159, Filing Date Dec. 1,
+                                2022. Korea Patent No. 10-2483371, Registering Date Dec. 27, 2022.
+                            </li>
+
+                            <li>
+                                <b>[P9]</b>
+                                Gert Frølund Pedersen, Jan Hvolgaard Mikkelsen, Ming Shen, Shuai Zhang, Dong Min Kim,
+                                Ondrej Franek, “Management of Large Number of RFID Tags in Cryogenic Container,” US
+                                Patent No. 11048992 B2, Registering Date Jun. 29, 2021.
+                            </li>
+
+                            <li>
+                                <b>[P8]</b>
+                                Jungki Kim, Dong Min Kim, Seonju Jeong, Hyeyoung Kwon, “Method creating 3D character in
+                                literary work using motion capture,” Korea Patent Application No. 10-2020-0024750,
+                                Filing Date Feb. 28, 2020.
+                            </li>
+
+                            <li>
+                                <b>[P7]</b>
+                                Chang Sik Park, Hak Jin Chong, Seong-Lyun Kim, Dong Min Kim, So Young Kim, Woo Ram Lee
+                                and Hyun Kwan Lee, “Apparatus and method for the prediction of group mobility in
+                                wireless sensor network,” Korea Patent Application No. 10-2008-0016876, Filing Date Feb.
+                                25, 2008. Korea Patent No. 0982439, Registering Date Sep. 09, 2010.
+                            </li>
+
+                            <li>
+                                <b>[P6]</b>
+                                Gwang-Ja Jin, Bong-Soo Kim, Cheol Sig Pyo, Jong Suk Chae, Young Ju Hwang, Dong Min Kim
+                                and Seong-Lyun Kim, “A wireless sensor network structure and the control method thereof
+                                using dynamic message routing algorithm,” Korea Patent Application No. 10-2007-0123644,
+                                Filing Date Nov. 30, 2007. Korea Patent No. 0943175, Registering Date Feb. 11, 2010.
+                            </li>
+
+                            <li>
+                                <b>[P5]</b>
+                                Gwang-Ja Jin, Bong-Soo Kim, Cheol Sig Pyo, Jong Suk Chae, Young Ju Hwang, Dong Min Kim
+                                and Seong-Lyun Kim, “A routing method for wireless network based on relay probability,”
+                                Korea Patent Application No. 10-2007-0123642, Filing Date Nov. 30, 2007. Korea Patent
+                                No. 0943174, Registering Date Feb. 11, 2010.
+                            </li>
+
+                            <li>
+                                <b>[P4]</b>
+                                Zu Cheul Lee, Kun Ho Yi, Dong Min Kim, Hyun Kwan Lee and Seong-Lyun Kim, “Method for
+                                controlling the sensor robot based on member mobility prediction,” Korea Patent
+                                Application No. 10-2008-0135665, Filing Date Dec. 29, 2008.
+                            </li>
+
+                            <li>
+                                <b>[P3]</b>
+                                Zu Cheul Lee, Hak Jin Chong, Dong Min Kim, So Young Kim and Seong-Lyun Kim, “Apparatus
+                                for the cooperative mobility prediction of sensor nodes and sensor robots in wireless
+                                sensor network and method for controlling a sensor robot,” Korea Patent Application No.
+                                10-2008-0133916, Filing Date Dec. 24, 2008.
+                            </li>
+
+                            <li>
+                                <b>[P2]</b>
+                                Gwang Ja Jin, Bong Soo Kim, Cheol Sig Pyo, Jong Suk Chae, Young Ju Hwang, Dong Min Kim
+                                and Seong-Lyun Kim, “Method for routing message in wireless network based on relay
+                                probability,” US Patent Application No. 12/185,506, Filing Date Aug. 4, 2008.
+                            </li>
+
+                            <li>
+                                <b>[P1]</b>
+                                Gwang Ja Jin, Bong Soo Kim, Cheol Sig Pyo, Jong Suk Chae, Young Ju Hwang, Dong Min Kim
+                                and Seong-Lyun Kim, “Wireless sensor network using dynamic message routing algorithm and
                                 method of controlling the wireless sensor network,” US Patent Application No.
-                                12/175,842, Filing Date July 18, 2008.</li>
+                                12/175,842, Filing Date July 18, 2008.
+                            </li>
                         </ul>
                     </div>
                 </div>
